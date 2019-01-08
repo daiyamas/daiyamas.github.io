@@ -60,14 +60,14 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('images/1227_01.jpg')">
+    <header class="masthead" style="background-image: url('images/0104_01.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
               <h1>Github PagesでBlog案を仮アップしました。</h1>
-              <span class="meta">投稿日2018.12.27</span>
+              <span class="meta">投稿日2019.01.04</span>
 
             </div>
           </div>
@@ -84,62 +84,30 @@
             <h3>ローカルリポジトリをどこに配置する?</h3>
             <p>Blogの全ファイルはPaizaClpud上で管理、改廃を行なっています。「PaizaCloud上にローカルリポジトリを配置できるのか？」
             を調べてみましたが、参考になる情報は見つけられませんでした。今回は一時的にMacbook Airのuser/内にローカルリポジトリ
-            「daiyamas.github.io」を作成しました。</p>
-                　<pre class="prettyprint lang-html ">
-                  $ git clone https://github.com/daiyamas/daiyamas.github.io.git</pre> 
+            「daiyamas.github.io」を作成しました。
+            <pre class="prettyprint lang-html ">
+                
+                  $ git clone https://github.com/daiyamas/daiyamas.github.io.git
+                  </pre> </p>
             <p>ファイルの改廃、新規作成等が発生した際は、PaizaCloud上から下記ディレクトリの該当箇所にファイルを上書き、追加してリモートリポジトリとの同期を行います。    
             <img class="img-fluid shadow" src="images/0104_02.jpg" alt="見出し要素のイメージ画像"></p>  
-              
-            <p>Bootstrapテーマ『Clean Blog」をベースに、記事ページ（post.html９のカスタマイズを行いました。もともと、欧文用にレイアウトされたものであるため、日本語フォントの表示が違和感ないようにカスタマイズを気をつけて行きたいと考えています。
-            使用ファイル：/d-blog/post.html</p>
-            <h3>body要素のfont-sizeは16px? 14px?</h3>
-            <p>デフォルトでは「20px」で設定されていましたが、日本語のレスポンシブサイトでよく見かける「16px」あたりに設定を変更してみました。h6のfont-sizeが16pxのようなので、ここに合わせるなら14pxも考えられますが、ひとまず16pxで様子をみていきます。ページのイメージを具体的に確認できるよう、各要素（タグ）のサンプルもhtmlに記述してみました</p>
-            <h3>h1>〜h6の見出し要素には、罫線などの装飾入りも設定予定</h3>
-            <img class="img-fluid shadow" src="images/1227_02.jpg" alt="見出し要素のイメージ画像">
-            <p>見出しまわりについては現状、文字サイズの大小のみの設定しか入っていませんが、見出し左や見出し下に罫線を入れた見出しも設定をかけていきます。</p>
-            <h3>ソースコードのハイライト表示を設定しました。</h3>
-            <p>本ブログは、ワークスキルの業務日報、備忘録として作成して行くため、記事内にソースコードのサンプルを書き留めておくことが必要になります。<br>イメージとしてQuiitaなどで見かけるこれです↓
-            <img class="img-fluid shadow" src="images/1227_06.jpg" alt="ハイライト表示のイメージ画像"></p>
-            <p>①今回はhighlight.jsを使用します。導入方法は一番手軽に導入できるCDNからの読み込みを行います。<br>
-                例えば、下記ソースをハイライト表示させたい時。<br>
-                &lt;link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.8.0/styles/default.min.css"&gt;<br>
-　　            &lt;script src="//cdn.jsdelivr.net/highlight.js/8.8.0/highlight.min.js"&gt;&lt;/script&gt;<br>
-　　            &lt;script>hljs.initHighlightingOnLoad();&lt;/script&gt;</p>
-　　            
-            <p>②ソースに 「<」「>」「&」 が含まれています。その際は、下記の通りソースを書き換える必要があります。<br>
-                「<」→「&lt;」<br>
-                「>」→「&gt; 」<br>
-                「&] →「&amp;」</p>
             
-            <p>変更後のソースは下記になります↓
-            <img class="img-fluid shadow" src="images/1227_03.jpg" alt="変更後のソース表示"></p>
-            
-            <p>③貼り付けたいソースコードを&lt;pre&gt;&lt;code&gt;...;&lt;/code&gt;&lt;/pre&gt;で囲みます↓
-            <img class="img-fluid shadow" src="images/1227_04.jpg" alt="ソースコードの変更イメージ">
-            クラス属性もあわせて設定が必要です。今回はhtmlファイルのソースなので「class = “html”」と記述します。</p>
-            <p>④post.htmlファイル内でソースコードがハイライト表示されました。
+            <p>例えばBlog内の下記ファイルを変更した場合。<br>
+            user/daiyamas.github.io/posts/181226.html</p>
+            <ol>
+            <li>変更したファイルをPaizaCloud上から/user/daiyamas.github.io/上の該当箇所に移動する</li>
+            <li>MacのターミナルでGitコマンドを入力してリモートリポジトリと同期する。</li>
+            </ol>
     <pre class="prettyprint lang-html ">
-      &lt;link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.8.0/styles/default.min.css"&gt;
-　　  &lt;script src="//cdn.jsdelivr.net/highlight.js/8.8.0/highlight.min.js">&lt;/script&gt;
-　　  &lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
-    </pre>        
-
-            
-            <p>ポートフォリオでは、自己紹介のページはもちろん、ワークスキルの進捗や技術メモとして、ブログ形式の記事を毎日1回更新していきます。具体的にはBootstrapの無料テーマをベースに、カスタマイズをかけていきながらページを完成させていきます。現時点で完成していない箇所は多々ありますが、仕様の変更・追加をくわえながらその詳細についてもこのブログの記事の中で触れていく予定です。</p>
-            <p>今回は「Clean-blog」というテーマを選びました。TOP／ABOUT／BLOG／CONTACTの4つの構成になっているため、カスタマイズがかけやすいためです。
-　　　　　　<img class="img-fluid shadow" src="images/1226_02.jpg" alt="Clean-blog"></p>
-            <p>現時点ではnavbarのネーム以外は特に仕様変更を行わず、記事ページの公開を先行して行います。各ページの仕様変更については随時この記事に書き留めて行こうと考えています。</p>
-            <p>ひとまずnavbarのネームのみ、アルファベット表記から日本語表記に変えてみました。テキストの差し替えだけおこなっただけでは、日本語フォントにふさわしい見映えに変更できませんので、新たに作成したCSSファイルで設定を行う必要があります。
-　　　　　　<img class="img-fluid shadow" src="images/1226_03.jpg" alt="Clean-blog"></p>
-　　　　　　
-　　　　　　<h3>どういった方法でBootstrapのカスタマイズを行なっていくか?</h3>
-　　　　　　<p>Bootstrapのカスタマイズを行なっていく上で、どういった方法を採用するかによって仕上がりも全く違うものになります。今回はすでに定義されているスタイルやコンポーネントを継承しつつ、デザインや各部の設定については上書き用のファイルを使用して行います。具体的には「custom.css」というcssファイルを用意してhtmlファイルに読み込ませます。各ページのhead部分に下記のように記述します。</p>
-　　　　　　<p>またデフォルトでは言語設定は「en」になっているので「ja」に変更も行います。
-　　　　　　<img class="img-fluid shadow" src="images/1226_04.jpg" alt="Clean-blog"></p>
-　　　　　　
-　　　　　　<p>フォントもデフォルトでは欧文フォントの設定しか入っていないため、日本語フォントに変更をかけます。今回は游ゴシック系にしています。body要素、見出し要素、navbarの設定を変更しましたが、元のCSSファイル（clean-blog.css）をチェックしてその他にも欧文フォントのみの設定がないかチェックが必要です。
-　　　　　　<img class="img-fluid shadow" src="images/1226_05.jpg" alt="Clean-blog"></p>
-          </div>
+        $ git add .
+        $ git commit -m “ovewrite 181226.html”</pre>  
+            <img class="img-fluid shadow" src="images/0104_03.jpg" alt="見出し要素のイメージ画像"> 
+            <p>リモートリポジトリに変更の書き込みを忘れていたので、下記コマンドを入力。「username」と「パスワード」を入力して作業完了。</p>  
+            <img class="img-fluid shadow" src="images/0104_04.jpg" alt="見出し要素のイメージ画像">  
+            <p>下記ページを仮アップしました。記事ページは各要素のCSSはひととおり設定済なので、これをベースに日報として記事作成を行っていきます。</p>
+            <p><a href="https://daiyamas.github.io/">TOPページ</a></p>
+            <p><a href="https://daiyamas.github.io//posts/181226.html">記事ページ</a></p>
+              </div>
         </div>
       </div>
     </article>
