@@ -66,7 +66,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-              <h1>ブログ案のカスタマイズに取り掛かりました。</h1>
+              <h1>Github PagesでBlog案を仮アップしました。</h1>
               <span class="meta">投稿日2018.12.27</span>
 
             </div>
@@ -76,10 +76,20 @@
     </header>
 
     <!-- Post Content -->
+    
     <article>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>ローカルリポジトリをどこに配置する?</h3>
+            <p>Blogの全ファイルはPaizaClpud上で管理、改廃を行なっています。「PaizaCloud上にローカルリポジトリを配置できるのか？」
+            を調べてみましたが、参考になる情報は見つけられませんでした。今回は一時的にMacbook Airのuser/内にローカルリポジトリ
+            「daiyamas.github.io」を作成しました。</p>
+                　<pre class="prettyprint lang-html ">
+                  $ git clone https://github.com/daiyamas/daiyamas.github.io.git</pre> 
+            <p>ファイルの改廃、新規作成等が発生した際は、PaizaCloud上から下記ディレクトリの該当箇所にファイルを上書き、追加してリモートリポジトリとの同期を行います。    
+            <img class="img-fluid shadow" src="images/0104_02.jpg" alt="見出し要素のイメージ画像"></p>  
+              
             <p>Bootstrapテーマ『Clean Blog」をベースに、記事ページ（post.html９のカスタマイズを行いました。もともと、欧文用にレイアウトされたものであるため、日本語フォントの表示が違和感ないようにカスタマイズを気をつけて行きたいと考えています。
             使用ファイル：/d-blog/post.html</p>
             <h3>body要素のfont-sizeは16px? 14px?</h3>
