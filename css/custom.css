@@ -6,7 +6,7 @@ body {
 
 p {
   line-height: 1.8;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 
@@ -32,6 +32,7 @@ color: black;/*文字色*/
 background: transparent;/*背景透明に*/
 border-left: solid 5px #33cc00;/*左線*/
 }
+
 h4{
     padding: .25em 0;
   border-top: 1px solid #ccc;
