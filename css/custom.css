@@ -71,23 +71,37 @@ header.masthead .post-heading .meta {
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
 }
 
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
 #mainNav {
   font-family:  "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
   background-color: rgba(51,204,0,0.8);
-
+  border-bottom: 1px solid rgba(51,204,0,0.8);
 }
 
 #mainNav .navbar-brand {
   font-weight: 400;
+  color:#fff;
 }
 
 #mainNav .navbar-toggler {
   font-weight: 400;
+  color:#fff;
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
   font-size: 16px;
   font-weight: 400;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color:#fff;
+}
+
+.navbar-light .navbar-toggler{
+    border-color: #fff;
 }
 
 
