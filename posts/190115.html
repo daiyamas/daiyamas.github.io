@@ -94,6 +94,47 @@
             <li>「戻る」「進む」ボタン、インジケータの設置</li>
             <li>リンクボタンの設置</li>
             </ol>
+        
+        <div class="module_code">▼ スライダー（カルーセル）の設定</div>
+        <pre class="prettyprint lang-html ">
+          &lt;!-- スライド1 --&gt;
+          &lt;div class="carousel-item active" style="background-image: url('img/post-1900×1200.jpg')"&gt;
+            &lt;div class="carousel-caption d-none d-md-block"&gt;
+             &lt;h1&gt;備忘録&lt;/h1&gt;
+              &lt;p&gt;This is a description for the first slide.&lt;/p&gt;
+               &lt;a class="btn btn-outline-success btn-sm" href="post.html"&gt;続きを読む »&lt;/a&gt;
+
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- スライド2 --&gt;
+          &lt;div class="carousel-item" style="background-image: url('img/about-1900×1200.jpg')"&gt;
+            &lt;div class="carousel-caption d-none d-md-block"&gt;
+              &lt;h1>自己紹介&lt;/h1&gt;
+              &lt;p>This is a description for the second slide.&lt;/p&gt;
+               &lt;a class="btn btn-outline-success btn-sm" href="about.html"&gt;続きを読む »&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- スライド3 --&gt;
+          &lt;div class="carousel-item" style="background-image: url('img/contact-1900×1200.jpg')"&gt;
+            &lt;div class="carousel-caption d-none d-md-block"&gt;
+              &lt;h1&gt;お問い合わせ&lt;/h1&gt;
+              &lt;p&gt;This is a description for the third slide.&lt;/p&gt;
+              &lt;a class="btn btn-outline-success btn-sm" href="contact.html"&gt;続きを読む »&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    　　&lt;!-- 戻る・進むボタンの設定 --&gt;
+        &lt;a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"&gt;
+          &lt;span class="carousel-control-rev-icon" aria-hidden="true"&gt;&lt;/span&gt;
+          &lt;span class="sr-only"&gt;Previous&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"&gt;
+          &lt;&lt;pan class="carousel-control-next-icon" aria-hidden="true"&gt;&lt;/span&gt;
+          &lt;span class="sr-only"&gt;Next&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+</pre>
+
 
             <p>背景の画像と表示させるテキストの見栄えについては、
             もう少し検討の余地がありますが、使用している画像は現状のもので
@@ -124,9 +165,9 @@
             
             
             <h5>本日のミニ備忘録</h5>
-            <p>本日朝の3分間スピーチと午前のプレゼンテーションと連続でスピーチすることになりましたが、
+            <p><strong>本日朝の3分間スピーチと午前のプレゼンテーションと連続でスピーチすることになりましたが、
             以前よりも準備のやり方に余裕が出てきたため、「時間が足りない」といった言い訳を思いつかなく
-            なってきました。バランスよく時間配分を行え流ようになってきたと感じています。</p>
+            なってきました。バランスよく時間配分を行え流ようになってきたと感じています。</strong></p>
           </div>
         </div>
       </div>
