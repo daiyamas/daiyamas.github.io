@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- google-code-prettify -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy"></script>
+
+    <!-- ソースコード表示 -->
+    <link rel="stylesheet" href="../css/prettify.css" type="text/css">
+    <script src="../js/prettify.js"></script>
+    <script src="../js/lang-css.js"></script>
+    
+    <!-- prettyPrint()関数を実行するため追加↓ -->
+    <script>prettyPrint();</script>
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0115_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>TOPページ、投稿一覧ページのフォーマットをほぼ固めました。</h1>
+              <span class="meta">投稿日2019.01.15</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>メイン画像は「スライダー表示&該当ページへジャンプ」に仕様変更。</h3>
+            <p>1ページビューか4ページ構成かの折衷案として、トップページから各ページへのジャンプは、
+            navbarとスライダー画像の両方へリンク設定を行うことにしました。
+            スライダー表示の仕様は、Bootstrapのカルーセルのコンポーネントを使用することで、実装できます。
+            今回は、</p>
+            <ol>
+            <li>スライドする画像は3点</li>
+            <li>「戻る」「進む」ボタン、インジケータの設置</li>
+            <li>リンクボタンの設置</li>
+            </ol>
+
+            <p>背景の画像と表示させるテキストの見栄えについては、
+            もう少し検討の余地がありますが、使用している画像は現状のもので
+            ほぼ確定させていこうと考えています。
+            「続きを読む」ボタンの色指定については、アウトラインに色を入れるよりも、
+            ベタ塗りの方が認識しやすいので、どちらにするか検討中です。</p>
+            
+            <h3>各ページのエレメントについてもCSS設定を変えてアレンジ中。</h3>
+            <img class="img-fluid shadow" src="images/0115_02.jpg" alt="photo">  
+            <p>記事ページの見出しの見えにくさについても検討してみました。
+            テキストに縁取りを入れる方法を当初考えましたが、最終的にはテキスト周り全体に
+            シャドウを入れる仕様に落ち着かせたいと考えています。</p>
+            
+            
+            
+            <img class="img-fluid shadow" src="images/0115_03.jpg" alt="photo">  
+            <p>自己紹介のページでは、キービジュアルをキャンプ場の画像に変更し、プロフィールの始まりには
+            アバター的なイラスト画像をページの左右センターに配置しています。
+            設定したCSSについては、ワークスキルLesson2 HTML/CSSで学んだソースコードを活用してみました。</p>            
+            
+            
+            <h3>4ページ構成＋キービジュアル部分のスライダー設定に仕様を決めました。</h3>
+            <img class="img-fluid shadow" src="images/0111_04.jpg" alt="photo"> 
+            <p>投稿一覧ページのインデックスは、トップページで仕様しているカードタイプとは違うものにして、
+            ページ遷移が認識できるように設定してみました。
+            インデックスの数がストックされてくれば、ページ下に設定しているナンバリングを
+            活用していく予定です。</p>
+            
+            
+            <h5>本日のミニ備忘録</h5>
+            <p>本日朝の3分間スピーチと午前のプレゼンテーションと連続でスピーチすることになりましたが、
+            以前よりも準備のやり方に余裕が出てきたため、「時間が足りない」といった言い訳を思いつかなく
+            なってきました。バランスよく時間配分を行え流ようになってきたと感じています。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+
+  </body>
+
+</html>
