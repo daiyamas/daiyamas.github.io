@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0117_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>各ページの要素がほぼ確定しました。</h1>
+              <span class="meta">投稿日2019.01.17</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>ハイライト表示の不具合は無事解消。</h3>
+            <p>昨日発生したGoogle code-prettifyの不具合は、当初使用していたhighlight.jsでの
+            実装に戻すことで解消されました。hightlight.jsも設定が簡単な上、cssファイルを
+            入れ替えることで見栄えを簡単に変更することができます。今回は「railscasts」を選びました。<br>
+            以下のデモページでハイライトの見た目が確認できます。</p>
+            <p><a href="https://highlightjs.org/static/demo/" target="_blank">highlight.js Demo</a></p>
+            <h3>細部の見直しも随時行っていきます。</h3>
+            <p>各ページの構成要素はほぼ確定できましたが、細かいスマホ版で一部画像のテキスト部分が認識できない点で詰めていく必要がある箇所も引き続き出てきています。
+            動作確認はほぼPCだけで行っており、スマホ、タブレットPCでも全ページでチェックを行っていく必要があります。
+            本日現在、修正を加えていきた箇所は以下の通りです。</p>
+            
+            <h5>お問い合わせページの実装</h5>
+            <p>テーマのデフォルトをそのまま流用したところ、フリーメールのドメインでは送信元に登録できない不具合が発生しています。
+            お問い合わせフォームはphpファイルで再度作り直す必要があります。</p>
+            
+            <h5>スマホ版で一部画像のテキスト部分が認識できない</h5>
+            <p>スマートフォンで閲覧した際、ソースコードをキャプチャ画像で配置している部分のテキストが認識できない状況が発生しています。
+            対策としては、モーダルを設置して拡大画像を表示される方法を検討しています。</p>
+            
+            <h5>「ページTOPに戻る」ボタンが必要!?</h5>
+            <p>ページをスクロールさせていった際、ページTOPに戻るボタンの設置も考えています。現状では下へスクロールした際、
+            ウインド上部にnavbarが固定表示される仕様になっているのでユーザビリティは問題ないのですが、
+            勉強のため実装してみます。</p>
+            
+            <h5>TOPページスライダー（カールセル）のインターバルの設定変更は!?</h5>
+            <p>TOPページで切り替え表示を行っている4つの画像は、だいたい5秒のインターバルでスライド表示されています。
+            インターバルの設定を若干遅め（プラス1秒）に変更した方が一つ一つの画像をしっかり認識できる
+            タイミングではないかと考えています。こちらも勉強のため実装してみます。</p>
+        
+            
+            <h4>本日のミニ備忘録</h4>
+            <img class="img-fluid shadow" src="images/0117_02.jpg" alt="photo"> 
+            <p><strong>本日はBlog以外にも、面談の質問を想定した回答案の作成→添削まで進めることができました。
+            また、D-postのカスタマイズ案についても相原さんに相談し、下記のようなイメージで完成を目指していく予定です。</strong></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+
+  </body>
+
+</html>
