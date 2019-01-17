@@ -25,16 +25,8 @@
     <link href="../css/clean-blog.min.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
 
-    <!-- google-code-prettify -->
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy"></script>
-
-    <!-- ソースコード表示 -->
-    <link rel="stylesheet" href="../css/prettify.css" type="text/css">
-    <script src="../js/prettify.js"></script>
-    <script src="../js/lang-css.js"></script>
-    
-    <!-- prettyPrint()関数を実行するため追加↓ -->
-    <script>prettyPrint();</script>
+     <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
 
   </head>
 
@@ -89,10 +81,9 @@
             <p>Blogの全ファイルはPaizaClpud上で管理、改廃を行なっています。「PaizaCloud上にローカルリポジトリを配置できるのか？」
             を調べてみましたが、参考になる情報は見つけられませんでした。今回は一時的にMacbook Airのuser/内にローカルリポジトリ
             「daiyamas.github.io」を作成しました。
-            <pre class="prettyprint lang-html ">
-                
-                  $ git clone https://github.com/daiyamas/daiyamas.github.io.git
-                  </pre> </p>
+            <pre><code class = “git”>
+ $ git clone https://github.com/daiyamas/daiyamas.github.io.git
+            </code></pre>
             <p>ファイルの改廃、新規作成等が発生した際は、PaizaCloud上から下記ディレクトリの該当箇所にファイルを上書き、追加してリモートリポジトリとの同期を行います。    
             <img class="img-fluid shadow" src="images/0104_02.jpg" alt="見出し要素のイメージ画像"></p>  
             
@@ -102,9 +93,10 @@
             <li>変更したファイルをPaizaCloud上から/user/daiyamas.github.io/上の該当箇所に移動する</li>
             <li>MacのターミナルでGitコマンドを入力してリモートリポジトリと同期する。</li>
             </ol>
-    <pre class="prettyprint lang-html ">
-        $ git add .
-        $ git commit -m “ovewrite 181226.html”</pre>  
+        <pre><code class = “git”>
+$ git add .
+$ git commit -m “ovewrite 181226.html” </code></pre>
+
             <img class="img-fluid shadow" src="images/0104_03.jpg" alt="見出し要素のイメージ画像"> 
             <p>リモートリポジトリに変更の書き込みを忘れていたので、下記コマンドを入力。「username」と「パスワード」を入力して作業完了。</p>  
             <img class="img-fluid shadow" src="images/0104_04.jpg" alt="見出し要素のイメージ画像">  
@@ -161,6 +153,10 @@
 
     <!-- Custom scripts for this template -->
     <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
     
 
   </body>
