@@ -169,8 +169,22 @@
 </code></pre>
             
             <h4>本日のミニ備忘録</h4>
-            <p><strong>本日はD-postのカスタマイズプランを記事にアウトプットするだけの作業になりました。
-            来週からは実装に入っていきたいと考えています。</strong></p>
+            <p><strong>午後に若干時間ができたので、カルーセルのインターバル設定方法をしらべてみました。
+            jsファイルの書き換えが必要かと思いましたが、htmlファイル上で設定できることを確認しました。
+            具体的には下記の通りです。</strong></p>
+<pre><code class = “html”>
+    &lt;!-- ヘッダ --&gt;
+    &lt;!-- 下記divタグ内に「data-interval」の数値を入力。4000と入力した場合「4秒」となります。 --&gt;
+    &lt;div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="4000"&gt;
+        &lt;ol class="carousel-indicators"&gt;
+          &lt;li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"&gt;/li&gt;
+          &lt;li data-target="#carouselExampleIndicators" data-slide-to="1"&gt;&lt;/li&gt;
+          &lt;li data-target="#carouselExampleIndicators" data-slide-to="2"&gt;&lt;/li&gt;
+          &lt;li data-target="#carouselExampleIndicators" data-slide-to="3"&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;div class="carousel-inner" role="listbox"&gt;
+</code></pre>
+
           </div>
         </div>
       </div>
