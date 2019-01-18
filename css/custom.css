@@ -64,7 +64,6 @@ border-radius:5px;
 }
 
 .carousel-caption {
-    bottom:80px;
     color:#fff;
     text-shadow: 1px 1px 5px #777,
     -1px 1px 5px #777,
@@ -174,6 +173,13 @@ margin-bottom: 30px;
 
 .navbar-light .navbar-toggler{
     border-color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+    .carousel-caption {
+       bottom:80px; 
+    }
+
 }
 
 
