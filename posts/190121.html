@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0121_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>スマホでのユーザビリティを見直しました。</h1>
+              <span class="meta">投稿日2019.01.21</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>ページTOPに戻りやすくしました。</h3>
+            <p>「モバイルファースト」でのレイアウトを行なったもの、ユーザビリティに関して、
+            問題点がひとつありました。スマホ画面で本ブログを閲覧した際、ページ下までスクロールした際に、
+            ページTOPに戻れませんでした。早速、スクリーンの右下に「ページTOP」へ戻るボタンを配置する
+            ことにしました。仕様としては、</p>
+            <ol>
+            <li>ページをある程度スクロールさせた際、ボタンが現れる</li>
+            <li>ページTOPに戻る際はスムーズにスクロールさせる</li>
+            </ol>
+            
+            <p>ページのbody要素の最後に下記ソースを追加します。</p>
+<pre><code class = “html”>
+    &lt;p id="page-top"&gt;&lt;a href="#"&gt;&lt;i class="fas fa-arrow-circle-up"&gt;&lt;/i&gt; ページTOP&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/body&gt;
+</code></pre>            
+            <p>スムーズにスクロールさせるスクリプトも記述し、以上で完成です。</p>
+<pre><code class = “js”>
+$(function() {
+    var topBtn = $('#page-top');    
+    topBtn.hide();
+    //スクロールが500に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});</code></pre>            
+            <h3>Webブラウザでスマホ、タブレット画面のサイズでチェックする方法</h3>
+            <img class="img-fluid shadow" src="images/0121_02.jpg" alt="photo"> 
+            <p>Webサイトの動作確認は、端末別、OS別、ブラウザ別に行うことが必須です。
+            現状では、新しい仕様を加えた際は手持ちの端末を仕様して、できる限りの確認を行なっています。
+            ただ、今回作成したサイトは、レスポンシブ対応のhtml、cssファイルを使用していますので、
+            ブラウザの幅を合わせるだけである程度の確認ができるのも事実です。
+            ということで、簡易的な動作確認用としてChromeの拡張機能の「Window Resizer」を使用しています。</p>
+            
+            <p>デフォルトでは、iPhoneやiPad、Raptop、Desktopなどのスクリーンサイズがプリセットされていますが、
+            確認したいサイズに合わせて、設定画面から追加することも可能です。</p>
+            
+            <h4>本日のミニ備忘録</h4>
+            <p><strong>午前中はプレゼンテーションに参加、午後は明日の3分間スピーチの準備とD-postのカスタマイズは並行して
+            行えないと判断したため、Blogの細部の見直しを進めました。今週中に仕上げる予定でしたが、明日は会社説明会が急遽入ったため、
+            スケジュールの見直しが若干必要になることも想定に入れておきます。</strong></p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
