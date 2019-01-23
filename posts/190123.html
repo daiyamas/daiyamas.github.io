@@ -115,8 +115,8 @@
             画像の配置には、Rails のimg_tagメソッドを使用。application.html.erbのbody要素内に下記メソッドを記述します。</p>
 <div class="module_code">▼ img_tagメソッドの記述</div>
 <pre><code class = “erb”>
-&lt;%= image_tag 'bg-photo.jpg' %gt;
-&lt;img src=“app/assets/images/bg-photo.jpg" /gt;
+&lt;%= image_tag 'bg-photo.jpg' %&gt;
+&lt;img src=“app/assets/images/bg-photo.jpg" /%&gt;
 </code></pre>
             
             <p>上記ソースでは配置画像のパスをapp/assets/images/から記述していましたが
@@ -124,8 +124,8 @@
             
 <div class="module_code">▼ img_tagメソッドの記述（パスの記述なし）</div>
 <pre><code class = “erb”>
-&lt;%= image_tag 'bg-photo.jpg' %gt;
-&lt;img src="bg-photo.jpg" /gt;
+&lt;%= image_tag 'bg-photo.jpg' %&gt;
+&lt;img src="bg-photo.jpg" /%&gt;
 </code></pre>
 
             <p>上記のソースをapplication.html.erbのbody要素内に記述したものが下記になります。</p>
