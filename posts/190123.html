@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0123_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>D-postの各ページにキービジュアルを配置する方法。</h1>
+              <span class="meta">投稿日2019.01.23</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>全体の構造を復習し、該当ファイルを特定できました。</h3>
+            <p>Ruby on Railsで作成したD-postのカスタマイズ第一弾として、各ページにキービジュアルを配置することから始めてみました。
+            ページへの各要素（テキスト、画像など）の配置は、ワークスキルのLesson6で学習した通り、
+            app/views/layouts/以下にある「◯◯◯◯html.erb」ファイルで行なっているはずです。
+            application.html.erbファイルを見ると、下記の通りhtmlの記述があります。</p>
+
+<div class="module_code">▼ app/views/layouts/_application.html.erb</div>
+<pre><code class = “erb”>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;DPosts&lt;/title&gt;
+     &lt;%= stylesheet_link_tag 'application', media: 'all' %&gt;
+     &lt;%= javascript_include_tag 'application' %&gt;
+     &lt;%= csrf_meta_tags %&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;%= render 'layouts/header' %&gt;
+    &lt;div class="container"&gt;
+    &lt;% flash.each do |message_type, message| %&gt; &lt;!-- ここから --&gt;
+      &lt;div class="alert alert-&lt;%= message_type %gt;"gt;&lt;%= message %&gt;&lt;/div&gt;
+    &lt;% end %gt; &lt;!-- ここまで追加 --&gt;        
+     &lt;%= yield %&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+            <p>画像の配置はhead要素もしくはbody要素のいずれかに記述を行うものと思われます。引き続き方法を調べていきます。</p><br>
+            
+            <h3>画像配置の各種設定には、img_tagメソッドを使用します。</h3>
+            <p>画像配置の記述を行う前に、配置する画像をどのフォルダに格納するかについて。
+            Lesson6で学習した際、自動生成で作成されたフォルダの中にapp/assets/imagesというフォルダがあることに
+            気づいていました。今回使用する画像は、D-Blogの自己紹介ページでもキービジュアとして使用している
+            キャンプシーンの画像を用意しました。
+            画像の配置には、Rails のimg_tagメソッドを使用。application.html.erbのbody要素内に下記メソッドを記述します。</p>
+<div class="module_code">▼ img_tagメソッドの記述</div>
+<pre><code class = “erb”>
+&lt;%= image_tag 'bg-photo.jpg' %gt;
+&lt;img src=“app/assets/images/bg-photo.jpg" /gt;
+</code></pre>
+            
+            <p>上記ソースでは配置画像のパスをapp/assets/images/から記述していましたが
+            、app/assets/images/ディレクトリに配置した画像はパスを記述する必要が無いことも知りました。</p>
+            
+<div class="module_code">▼ img_tagメソッドの記述（パスの記述なし）</div>
+<pre><code class = “erb”>
+&lt;%= image_tag 'bg-photo.jpg' %gt;
+&lt;img src="bg-photo.jpg" /gt;
+</code></pre>
+
+            <p>上記のソースをapplication.html.erbのbody要素内に記述したものが下記になります。</p>
+            
+<div class="module_code">▼ app/views/layouts/_application.html.erbへの記述後ソース</div>
+<pre><code class = “erb”>
+&lt;body&gt;
+&lt;%= image_tag 'bg-photo.jpg' %&gt;
+&lt;img src="bg-photo.jpg" /&gt;     
+  &lt;%= render 'layouts/header' %&gt;
+    &lt;div class="container"&gt;
+    &lt;% flash.each do |message_type, message| %&gt; &lt;!-- ここから --&gt;
+      &lt;div class="alert alert-&lt;%= message_type %&gt;"&gt;&lt;%= message %&gt;&lt;/div&gt;
+    &lt;% end %&gt; &lt;!-- ここまで追加 --&gt;      
+     &lt;%= yield %&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+            
+            <p>railsサーバーを起動させてページを確認してみたところ、画像はnavbarの下、body要素内に無事表示されました。
+            作成したページを確認したところ、問題なく全てのページで画像が表示されています。ただし、現状のソースでは
+            たて1900×よこ500pxの画像がそのまま表示されている状態なのでCSSファイル等で設定が必要です。
+            </p><br>
+            
+            
+            <h4>本日のミニ備忘録</h4>
+            <p><strong>D-postのカスタマイズは、当初の計画から若干スケジュールが押し気味でしたが画像の配置に関して
+            意外と早く設置方法が見つけられました。htmlとcssの理解度に助けられ、Railsでの記述に関しても今のところ
+            大きな壁にぶち当たることなく、ひとつづつ方法をマスターしていきたいと考えています。</strong></p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
