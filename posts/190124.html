@@ -55,14 +55,14 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('images/0123_01.jpg')">
+    <header class="masthead" style="background-image: url('images/0124_01.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-              <h1>D-postの各ページにキービジュアルを配置する方法(1)。</h1>
-              <span class="meta">投稿日2019.01.23</span>
+              <h1>D-postの各ページにキービジュアルを配置する方法(2)</h1>
+              <span class="meta">投稿日2019.01.24</span>
 
             </div>
           </div>
@@ -76,84 +76,79 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h3>全体の構造を復習し、該当ファイルを特定できました。</h3>
-            <p>Ruby on Railsで作成したD-postのカスタマイズ第一弾として、各ページにキービジュアルを配置することから始めてみました。
-            ページへの各要素（テキスト、画像など）の配置は、ワークスキルのLesson6で学習した通り、
-            app/views/layouts/以下にある「◯◯◯◯html.erb」ファイルで行なっているはずです。
-            application.html.erbファイルを見ると、下記の通りhtmlの記述があります。</p>
+            <h3>配置した画像をレスポンシブに設定する方法。</h3>
+            <p>D-postの各ページにキービジュアルを配置できたものの、現状では画像の元サイズのまま表示されています。
+            html、cssで作成した場合は、cssファイルで以下のような設定をかけますが、D-postはBootstrapを読み込み済なので
+            class属性での設定が可能ではないかと思い、ソースの記述方法を調べて見ました。</p>
+            
+            <p>image_tagの生成方法については下記サイトを参照しました。</p>
+            <img class="img-fluid shadow" src="images/0124_02.jpg" alt="photo"> 
+            <p><a href="http://railsdoc.com/references/image_tag" target="_blank">http://railsdoc.com/references/image_tag</a></p>
+            <p>配置する画像とクラス属性の設定方法を参考にして、下記ソースを記述して見ました。</p>
 
-<div class="module_code">▼ app/views/layouts/_application.html.erb</div>
+<div class="module_code">▼ 変更前のソース</div>
 <pre><code class = “erb”>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;DPosts&lt;/title&gt;
-     &lt;%= stylesheet_link_tag 'application', media: 'all' %&gt;
-     &lt;%= javascript_include_tag 'application' %&gt;
-     &lt;%= csrf_meta_tags %&gt;
-&lt;/head&gt;
+&lt;body>
+  &lt;%= render 'layouts/header' %&gt;
+&lt;%= image_tag("bg-photo.jpg") %&gt;
+</code></pre>
+
+
+<div class="module_code">▼ 変更後のソース</div>
+<pre><code class = “erb”>
 &lt;body&gt;
   &lt;%= render 'layouts/header' %&gt;
-    &lt;div class="container"&gt;
-    &lt;% flash.each do |message_type, message| %&gt; &lt;!-- ここから --&gt;
-      &lt;div class="alert alert-&lt;%= message_type %gt;"gt;&lt;%= message %&gt;&lt;/div&gt;
-    &lt;% end %gt; &lt;!-- ここまで追加 --&gt;        
-     &lt;%= yield %&gt;
-    &lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;%= image_tag("bg-photo.jpg", :class => "img-responsive") %&gt;
 </code></pre>
 
-            <p>画像の配置はhead要素もしくはbody要素のいずれかに記述を行うものと思われます。引き続き方法を調べていきます。</p><br>
+            <p>サーバーを起動して検証して見たところ、問題なくレスポンシブ対応していました。
+            「img-responsive」とクラス属性を記述するだけで反映されます。CSSで設定しなくてもいいので、
+            記述の手間が省けとても便利。最終的には画像の上にテキストを表示させたいので、
+            画像のbackgroud表示の設定方法を引き続き調べていきたいと思います。</p>
+            <img class="img-fluid shadow" src="images/0124_03.jpg" alt="photo"> <br><br>
+
+            <h3>プロフィール画像+テキストの挿入、コメントフォームの移動方法は?</h3>
+            <p>ユーザーページは左右2カラム構成で、左部分にプロフィールと投稿フォーム、
+            右部分にツイートのタイムラインが表示されています。
+            ここから下記の仕様に変更をかけたいと考えています。</p>
+            <img class="img-fluid shadow" src="images/0124_04.jpg" alt="photo"> <br><br
+
+            <ol>
+            <li>プロフィール部分に画像を追加する</li>
+            <li>プロフィール部分に簡単な自己紹介（テキスト）を追加する</li>
+            <li>投稿フォームを現在の左カラムから右カラムに移動する</li>
+            <li>リスト4</li>
+            </ol>
+          
+            <p>ビュー関連のファイルはapp/views/layouts/以下にあるので、すべてのファイルをもう一度確認してみました。
+            home.html.erbファイル内に、「col-md-4」と「col-md-8」のクラス属性で記述されている箇所が該当しています。
+            詳細は下記ソースの通りです。</p>
             
-            <h3>画像配置の各種設定には、img_tagメソッドを使用します。</h3>
-            <p>画像配置の記述を行う前に、配置する画像をどのフォルダに格納するかについて。
-            Lesson6で学習した際、自動生成で作成されたフォルダの中にapp/assets/imagesというフォルダがあることに
-            気づいていました。今回使用する画像は、D-Blogの自己紹介ページでもキービジュアとして使用している
-            キャンプシーンの画像を用意しました。
-            画像の配置には、Rails のimg_tagメソッドを使用。application.html.erbのbody要素内に下記メソッドを記述します。</p>
-<div class="module_code">▼ img_tagメソッドの記述</div>
-<pre><code class = “erb”>
-&lt;%= image_tag 'bg-photo.jpg' %&gt;
-&lt;img src=“app/assets/images/bg-photo.jpg" /%&gt;
-</code></pre>
-            
-            <p>上記ソースでは配置画像のパスをapp/assets/images/から記述していましたが
-            、app/assets/images/ディレクトリに配置した画像はパスを記述する必要が無いことも知りました。</p>
-            
-<div class="module_code">▼ img_tagメソッドの記述（パスの記述なし）</div>
-<pre><code class = “erb”>
-&lt;%= image_tag 'bg-photo.jpg' %&gt;
+<pre><code class = “erb”> 
+&lt;aside class="col-md-4"&gt;
+      &lt;section class="user_info"&gt;
+        &lt;%= render 'shared/user_info' %&gt;
+      &lt;/section&gt;
+      &lt;section class="micropost_form"&gt;
+        &lt;%= render 'shared/micropost_form' %&gt;
+      &lt;/section&gt;
+    &lt;/aside&gt;
+    &lt;div class="col-md-8"&gt;
+      &lt;h3&gt;Dpost Feed&lt;/h3&gt;
+      &lt;%= render 'shared/feed' %&gt;
+    &lt;/div&gt;    
 </code></pre>
 
-            <p>上記のソースをapplication.html.erbのbody要素内に記述したものが下記になります。</p>
-            
-<div class="module_code">▼ app/views/layouts/_application.html.erbへの記述後ソース</div>
-<pre><code class = “erb”>
-&lt;body&gt;
-&lt;%= image_tag 'bg-photo.jpg' %&gt;
-  &lt;%= render 'layouts/header' %&gt;
-    &lt;div class="container"&gt;
-    &lt;% flash.each do |message_type, message| %&gt; &lt;!-- ここから --&gt;
-      &lt;div class="alert alert-&lt;%= message_type %&gt;"&gt;&lt;%= message %&gt;&lt;/div&gt;
-    &lt;% end %&gt; &lt;!-- ここまで追加 --&gt;      
-     &lt;%= yield %&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
-            
-            <p>railsサーバーを起動させてページを確認してみたところ、画像はnavbarの下、body要素内に無事表示されました。
-            作成したページを確認したところ、問題なく全てのページで画像が表示されています。ただし、現状のソースでは
-            たて1900×よこ500pxの画像がそのまま表示されている状態なのでCSSファイル等で設定が必要です。
-            </p><br>
+            <p>試しに左カラムのプロフィール部分を右カラムに移動して見たところ、問題なく表示されました。
+            上記1〜3の記述方法については引き続き調べていきたいと思います。</p>
+            <img class="img-fluid shadow" src="images/0124_05.jpg" alt="photo"> <br><br
             
             
             <h4>本日のミニ備忘録</h4>
             <p><strong>D-postのカスタマイズは、当初の計画から若干スケジュールが押し気味でしたが画像の配置に関して
             意外と早く設置方法が見つけられました。htmlとcssの理解度に助けられ、Railsでの記述に関しても今のところ
             大きな壁にぶち当たることなく、ひとつづつ方法をマスターしていきたいと考えています。</strong></p>
-
+            
           </div>
         </div>
       </div>
