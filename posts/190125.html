@@ -55,14 +55,14 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('images/0123_01.jpg')">
+    <header class="masthead" style="background-image: url('images/0125_01.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-              <h1>D-postの各ページにキービジュアルを配置する方法(1)</h1>
-              <span class="meta">投稿日2019.01.23</span>
+              <h1>D-postのユーザーページにプロフィールを設置する方法。</h1>
+              <span class="meta">投稿日2019.01.25</span>
 
             </div>
           </div>
@@ -76,85 +76,97 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h3>全体の構造を復習し、該当ファイルを特定できました。</h3>
-            <p>Ruby on Railsで作成したD-postのカスタマイズ第一弾として、各ページにキービジュアルを配置することから
-            始めてみました。
-            ページへの各要素（テキスト、画像など）の配置は、ワークスキルのLesson6で学習した通り、
-            app/views/layouts/以下にある「◯◯◯◯html.erb」ファイルで行なっているはずです。
-            application.html.erbファイルを見ると、下記の通りhtmlの記述があります。</p>
-
-<div class="module_code">▼ app/views/layouts/_application.html.erb</div>
+            <h3>ユーザーページ左カラムにプロフィールを追加する方法。</h3>
+            <p>キービジュアルの配置方法については、該当ファイルとソースの記述方法を習得することができました。
+            今回は、ユーザーページ内のbody要素内に配置されている2つのカラムの内、左カラム内にプロフィールを
+            追加してみたいと思います。要素はD-blog自己紹介ページでも使用しているイラストと、
+            簡単なプロフィールテキストの組み合わせです。</p>
+            
+            <p><a href="190125.html">昨日の記事</a>で確認できた通り、app/views/layouts/static_pages/home.html.erb
+            ファイルがまず該当します。</p>
+            
+<div class="module_code">▼ app/views/layouts/static_pages/home.html.erb</div>
 <pre><code class = “erb”>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;DPosts&lt;/title&gt;
-     &lt;%= stylesheet_link_tag 'application', media: 'all' %&gt;
-     &lt;%= javascript_include_tag 'application' %&gt;
-     &lt;%= csrf_meta_tags %&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;%= render 'layouts/header' %&gt;
-    &lt;div class="container"&gt;
-    &lt;% flash.each do |message_type, message| %&gt; &lt;!-- ここから --&gt;
-      &lt;div class="alert alert-&lt;%= message_type %gt;"gt;&lt;%= message %&gt;&lt;/div&gt;
-    &lt;% end %gt; &lt;!-- ここまで追加 --&gt;        
-     &lt;%= yield %&gt;
+&lt;% if logged_in? %&gt;
+  &lt;div class="row"&gt;
+    &lt;aside class="col-md-4"&gt;
+      &lt;section class="user_info"&gt;
+        &lt;%= render 'shared/user_info' %&gt;
+      &lt;/section&gt;
+      &lt;section class="micropost_form"&gt;
+        &lt;%= render 'shared/micropost_form' %&gt;
+      &lt;/section&gt;
+    &lt;/aside&gt;
+    &lt;div class="col-md-8"&gt;
+  &lt;h3&gt;Dpost Feed&lt;/h3&gt;
+      &lt;%= render 'shared/feed' %&gt;
+    &lt;/div&gt;    
+  &lt;/div&gt;
+&lt;% else %&gt;
+  &lt;div class="center jumbotron"&gt;
+    &lt;h1&gt;Welcome to the Dposts&lt;/h1&gt;
+    &lt;%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;
+</code></pre>
+
+            <p>5行目にある &lt;%= render 'shared/user_info' %&gt;の記述は、
+            app/views/shared/user_info.html.erbを読み込んでいます。
+            上記ファイルにプロフィール画像とテキストの記述を行えば、
+            ページに反映されるということ。早速、ソースを追加してみました。</p>
+
+
+<div class="module_code">▼ 変更前のソース</div>
+<pre><code class = “erb”>
+&lt;%= link_to gravatar_for(current_user, size: 50), current_user %&gt;
+&lt;h1&gt;&lt;%= current_user.name %&gt;&lt;/h1&gt;
+&lt;span&gt;&lt;%= pluralize(current_user.microposts.count, "micropost") %&gt;&lt;/span&gt;&lt;br&gt;
+</code></pre>
+
+<div class="module_code">▼ 変更後のソース</div>
+<pre><code class = “erb”>
+&lt;%= link_to gravatar_for(current_user, size: 50), current_user %&gt;
+&lt;h1&gt;&lt;%= current_user.name %&gt;&lt;/h1&gt;
+&lt;span&gt;&lt;%= pluralize(current_user.microposts.count, "micropost") %&gt;&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;%= image_tag("profile.jpg", :class =&gt; "img-responsive") %&gt;&lt;/span&gt;&lt;br&gt;
+&lt;h1&gt;Daisuke yamasaki&lt;/h1&gt;
+&lt;p&gt;神奈川県横浜市在住。1969年生まれ。好みのラーメンは二郎インスパイア系。
+週1で横浜・新羽のハイパーファットンへ出没中。今一番いきたいラーメン店は東京・蒲田の荒木屋。&lt;/p&gt;
+</code></pre>
+
+            <p>サーバーを起動してD-postを起動してみたところ、追加した画像とテキストは問題なく表示されました。</p>
+            <img class="img-fluid shadow" src="images/0125_02.jpg" alt="photo"> <br><br>
+
+            <h3>投稿フォームを左カラムから右カラムへ移動する方法。</h3>
+            <p>右カラムの記述は前述のソース10行目の &lt;div class="col-md-8"&gt;以下が該当します。
+            この直下に投稿フォームのソースを貼り付けてみました。</p>
+            
+<div class="module_code">▼ app/views/layouts/static_pages/home.html.erb（変更前）</div>
+<pre><code class = “erb”>
+    &lt;div class="col-md-8"&gt;
+  &lt;h3&gt;Dpost Feed&lt;/h3&gt;
+      &lt;%= render 'shared/feed' %&gt;
     &lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
 </code></pre>
 
-            <p>画像の配置はhead要素もしくはbody要素のいずれかに記述を行うものと思われます。引き続き方法を調べていきます。</p><br>
-            
-            <h3>画像配置の各種設定には、img_tagメソッドを使用します。</h3>
-            <p>画像配置の記述を行う前に、配置する画像をどのフォルダに格納するかについて。
-            Lesson6で学習した際、自動生成で作成されたフォルダの中にapp/assets/imagesというフォルダがあることに
-            気づいていました。今回使用する画像は、D-Blogの自己紹介ページでもキービジュアルとして使用している
-            キャンプシーンの画像を用意しました。
-            画像の配置には、Rails のimg_tagメソッドを使用。application.html.erbのbody要素内に下記メソッドを記述します。</p>
-<div class="module_code">▼ img_tagメソッドの記述</div>
+<div class="module_code">▼ app/views/layouts/static_pages/home.html.erb（変更後）</div>
 <pre><code class = “erb”>
-&lt;%= image_tag 'bg-photo.jpg' %&gt;
-&lt;img src=“app/assets/images/bg-photo.jpg" /%&gt;
+    &lt;div class="col-md-8"&gt;
+        &lt;section class="micropost_form"&gt;
+        &lt;%= render 'shared/micropost_form' %&gt;
+      &lt;/section&gt;
+&lt;h3&gt;Dpost Feed&lt;/h3&gt;
+      &lt;%= render 'shared/feed' %&gt;
+    &lt;/div&gt;    
 </code></pre>
-            
-            <p>上記ソースでは配置画像のパスをapp/assets/images/から記述していましたが
-            、app/assets/images/ディレクトリに配置した画像はパスを記述する必要がありません（これはラク!）。</p>
-            
-<div class="module_code">▼ img_tagメソッドの記述（パスの記述なし）</div>
-<pre><code class = “erb”>
-&lt;%= image_tag 'bg-photo.jpg' %&gt;
-</code></pre>
-
-            <p>上記のソースをapplication.html.erbのbody要素内に記述したものが下記になります。</p>
-            
-<div class="module_code">▼ app/views/layouts/_application.html.erbへの記述後ソース</div>
-<pre><code class = “erb”>
-&lt;body&gt;
-&lt;%= image_tag 'bg-photo.jpg' %&gt;
-  &lt;%= render 'layouts/header' %&gt;
-    &lt;div class="container"&gt;
-    &lt;% flash.each do |message_type, message| %&gt; &lt;!-- ここから --&gt;
-      &lt;div class="alert alert-&lt;%= message_type %&gt;"&gt;&lt;%= message %&gt;&lt;/div&gt;
-    &lt;% end %&gt; &lt;!-- ここまで追加 --&gt;      
-     &lt;%= yield %&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-</code></pre>
-            
-            <p>railsサーバーを起動させてページを確認してみたところ、画像はnavbarの下、body要素内に無事表示されました。
-            作成したページを確認したところ、問題なく全てのページで画像が表示されています。ただし、現状のソースでは
-            たて1900×よこ500pxの画像がそのまま表示されている状態なのでCSSファイル等で設定が必要です。
-            </p><br>
-            
+            <p>サーバーを起動してみたところ、投稿フォームは表示されましたが、キービジュアルとの余白がない状態で
+            表示されているため、margin-topの設定等が必要です。
+            <img class="img-fluid shadow" src="images/0125_03.jpg" alt="photo"> </p><br><br>
             
             <h4>本日のミニ備忘録</h4>
-            <p><strong>D-postのカスタマイズは、当初の計画から若干スケジュールが押し気味でしたが画像の配置に関して
-            意外と早く設置方法が見つけられました。htmlとcssの理解度に助けられ、Railsでの記述に関しても今のところ
-            大きな壁にぶち当たることなく、ひとつづつ方法をマスターしていきたいと考えています。</strong></p>
-
+            <p><strong>久しぶりに午前・午後共に個別の作業に集中することができました。Railsで作成した各ファイルの構成も
+            把握できてきたので、この調子でカスタマイズを進めていきたいと思います。</strong></p>
+            
           </div>
         </div>
       </div>

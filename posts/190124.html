@@ -79,12 +79,12 @@
             <h3>配置した画像をレスポンシブに設定する方法。</h3>
             <p>D-postの各ページにキービジュアルを配置できたものの、現状では画像の元サイズのまま表示されています。
             html、cssで作成した場合は、cssファイルで以下のような設定をかけますが、D-postはBootstrapを読み込み済なので
-            class属性での設定が可能ではないかと思い、ソースの記述方法を調べて見ました。</p>
+            class属性での設定が可能ではないかと思い、ソースの記述方法を調べてみました。</p>
             
             <p>image_tagの生成方法については下記サイトを参照しました。</p>
             <img class="img-fluid shadow" src="images/0124_02.jpg" alt="photo"> 
             <p><a href="http://railsdoc.com/references/image_tag" target="_blank">http://railsdoc.com/references/image_tag</a></p>
-            <p>配置する画像とクラス属性の設定方法を参考にして、下記ソースを記述して見ました。</p>
+            <p>配置する画像とクラス属性の設定方法を参考にして、下記ソースを記述してみました。</p>
 
 <div class="module_code">▼ 変更前のソース</div>
 <pre><code class = “erb”>
@@ -101,7 +101,7 @@
 &lt;%= image_tag("bg-photo.jpg", :class => "img-responsive") %&gt;
 </code></pre>
 
-            <p>サーバーを起動して検証して見たところ、問題なくレスポンシブ対応していました。
+            <p>サーバーを起動して検証してみたところ、問題なくレスポンシブ対応していました。
             「img-responsive」とクラス属性を記述するだけで反映されます。CSSで設定しなくてもいいので、
             記述の手間が省けとても便利。最終的には画像の上にテキストを表示させたいので、
             画像のbackgroud表示の設定方法を引き続き調べていきたいと思います。</p>
@@ -139,9 +139,9 @@
     &lt;/div&gt;    
 </code></pre>
 
-            <p>試しに左カラムのプロフィール部分を右カラムに移動して見たところ、問題なく表示されました。
+            <p>試しに左カラムのプロフィール部分を右カラムに移動してみたところ、問題なく表示されました。
             上記1〜3の記述方法については引き続き調べていきたいと思います。</p>
-            <img class="img-fluid shadow" src="images/0124_05.jpg" alt="photo"> <br><br
+            <img class="img-fluid shadow" src="images/0124_05.jpg" alt="photo"> <br><br>
             
             
             <h4>本日のミニ備忘録</h4>
