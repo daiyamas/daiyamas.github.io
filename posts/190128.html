@@ -144,9 +144,36 @@
             <p>サーバーを起動してD-postを起動してみたところ、追加した画像とテキストは問題なく表示されました。
             <img class="img-fluid shadow" src="images/0128_02.jpg" alt="photo"> </p><br>
 
-            <h4>本日のミニ備忘録</h4>
-            <p><strong>D-postのカスタマイズに関しては、当初の計画をほぼ達成できました。カスタマイズ途中で仕様追加した
-            キービジュアルをbackground-imageに、その上にテキスト配置の方法を調べていきます。</strong></p>
+            <h3>HEROKUでデプロイできたのに、背景画像が表示されない…。</h3>
+            <img class="img-fluid shadow" src="images/0128_04.jpg" alt="photo"> </p><br>
+            <p><strong>D-postのカスタマイズに関しては本日で完了。HEROKUへデプロイしてみたものの、キービジュアルが
+            表示されないという不具合が発生してしまいました…。調べてみたところ、background-imageの記述に問題がありました。
+            ローカル環境では<strong>url</strong>("bg-photo.jpg")でも問題なく表示されていましたが、本番環境では<strong>image-url</strong>("bg-photo.jpg")に直す必要があります。
+            </strong></p>
+            
+<div class="module_code">▼ 変更前の記述</div>
+<pre><code class = “css”>
+#bg {
+  background-image: url("bg-photo.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 200px;
+}
+
+</code></pre> 
+<div class="module_code">▼ 変更前の記述</div>
+<pre><code class = “css”>
+#bg {
+  background-image: image-url("bg-photo.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 200px;
+}
+
+</code></pre> 
+            
             
           </div>
         </div>
