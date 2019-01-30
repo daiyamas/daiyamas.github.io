@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0130_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>問い合わせページを新たに実装しました。</h1>
+              <span class="meta">投稿日2019.01.30</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>メールフォームを簡単に実装する方法。</h3>
+            <p>1/17の記事で報告したとおり、メールフォームについてはBootstrapのテーマのデフォルトファイルを流用していましたが、
+            フリーメールのドメインでは送信元に設定できないことが発覚。再度作り直すことで一旦保留にしていたものを、
+            再度実装し直すことにしました。<br>
+            方法としては、メールフォームの設定をphpファイルで作成し、htmlファイルに読み込ませます。ただし、作業時間に制約があるため、
+            phpファイルは既存のもの（フリー配布版）を流用し、htmlへの読み込みを行う方法を取ることにしました。
+            今回はフリー利用可能なメールフォーム「php工房」を利用します。</p>
+            <p><img class="img-fluid shadow" src="images/0130_02.jpg" alt="photo">
+            <a href="https://www.php-factory.net/mail/01.php" target="_blank">php工房</a></p>
+
+            <h3>phpファイルは簡単な設定のみでOK。</h3>
+            <p>php工房のphpファイルは、フォームを利用した際に必要となる送信内容確認画面、送信完了画面の設定や自動返信メールの設定なども
+            デフォルトで用意されています。「送信元のメールアドレス」と「サイトTOPのURL」を登録すれば、すぐ利用できます。
+            また、リファラチェックなどのセキュリティ、スパム防止のための設定も用意されています。</p>
+            
+            <div class="module_code">▼ phpファイルの必須設定</div>
+<pre><code class = “php”>
+//---------------------------　必須設定　必ず設定してください　-----------------------
+
+//サイトのトップページのURL　※デフォルトでは送信完了後に「トップページへ戻る」ボタンが表示されますので
+$site_top = "https://daiyamas.github.io/";
+
+//管理者のメールアドレス ※メールを受け取るメールアドレス(複数指定する場合は「,」で区切ってください 例 $to = "aa@aa.aa,bb@bb.bb";)
+$to = "daiyamas@gmail.com";
+
+//自動返信メールの送信元メールアドレス
+//必ず実在するメールアドレスでかつ出来る限り設置先サイトのドメインと同じドメインのメールアドレスとすることを強く推奨します
+$from = "daiyamas@gmail.com";
+</code></pre>
+
+            <h3>htmlファイルに、フォーム部分の記述を追加していきます。</h3>
+            <p>contact.htmlファイルには、問い合わせフォームの下記ソースをbody要素に記述していきます。</p>
+
+            <div class="module_code">▼ 問い合わせフォームの記述</div>
+<pre><code class = “html”>
+&lt;div id="formWrap"&gt;
+  &lt;h3&gt;お問い合わせ&lt;/h3&gt;
+  &lt;p&gt;下記フォームに必要事項を入力後、確認ボタンを押してください。&lt;/p&gt;
+  &lt;form method="post" action="mail.php"&gt;
+    &lt;table class="formTable"&gt;
+      &lt;tr&gt;
+        &lt;th&gt;ご用件&lt;/th&gt;
+        &lt;td&gt;&lt;select name="ご用件"&gt;
+            &lt;option value=""&gt;選択してください&lt;/option&gt;
+            &lt;option value="ご質問・お問い合わせ"&gt;ご質問・お問い合わせ&lt;/option&gt;
+            &lt;option value="リンクについて"&gt;リンクについて&lt;/option&gt;
+          &lt;/select&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;お名前&lt;/th&gt;
+        &lt;td&gt;&lt;input size="20" type="text" name="お名前" /&gt; ※必須&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;電話番号（半角）&lt;/th&gt;
+        &lt;td&gt;&lt;input size="30" type="text" name="電話番号" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Mail（半角）&lt;/th&gt;
+        &lt;td&gt;&lt;input size="30" type="text" name="Email" /&gt; ※必須&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;お問い合わせ内容&lt;br /&gt;&lt;/th&gt;
+        &lt;td&gt;&lt;textarea name="お問い合わせ内容" cols="50" rows="5"&gt;&lt;/textarea&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;p align="center"&gt;
+      &lt;input type="submit" value="　 確認 　" /&gt;　&lt;input type="reset" value="リセット" /&gt;
+    &lt;/p&gt;
+  &lt;/form&gt;
+  &lt;p&gt;※IPアドレスを記録しております。いたずらや嫌がらせ等はご遠慮ください&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+            <p>上記ソース内formWrap、formTableのCSS設定が、htmlファイルのhead部分に記述されていたため、
+            新たにmail.cssファイルを作成しhaed部分に読み込ませて完成です。</p>            
+
+            <div class="module_code">▼ contact.htmlのhead部分</div>
+<pre><code class = “html”>
+&lt;head&gt;
+
+中略
+
+    &lt;!-- Custom styles for this template --&gt;
+    &lt;link href="css/clean-blog.min.css" rel="stylesheet"&gt;
+    &lt;link href="css/custom.css" rel="stylesheet"&gt;
+    &lt;link href="css/mail.css" rel="stylesheet"&gt;
+
+&lt;/head&gt;
+</code></pre>
+            
+            <div class="module_code">▼ mail.css</div>
+<pre><code class = “css”>
+#formWrap {
+	width:700px;
+	margin:0 auto;
+	color:#555;
+	line-height:120%;
+	font-size:90%;
+}
+table.formTable{
+	width:100%;
+	margin:0 auto;
+	border-collapse:collapse;
+}
+table.formTable td,table.formTable th{
+	border:1px solid #ccc;
+	padding:10px;
+}
+table.formTable th{
+	width:30%;
+	font-weight:normal;
+	background:#efefef;
+	text-align:left;
+}
+/*　簡易版レスポンシブ用CSS（必要最低限のみとしています。ブレークポイントも含め自由に設定下さい）　*/
+@media screen and (max-width:572px) {
+#formWrap {
+	width:95%;
+	margin:0 auto;
+}
+table.formTable th, table.formTable td {
+	width:auto;
+	display:block;
+}
+table.formTable th {
+	margin-top:5px;
+	border-bottom:0;
+}
+input[type="text"], textarea {
+	width:80%;
+	padding:5px;
+	font-size:110%;
+	display:block;
+}
+input[type="submit"], input[type="reset"], input[type="button"] {
+	display:block;
+	width:100%;
+	height:40px;
+}
+}
+</code></pre>
+
+            <p>ローカル環境では問題なく動作しているため、特定の方法が見当たらず…。
+            原因の究明はここまでにして、カスタマイズ後のファイルに戻してひとまず完了とします。</p>
+            
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
