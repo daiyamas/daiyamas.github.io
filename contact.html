@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <meta name="format-detection" content="telephone=no">
-<title>D-blog - daiのワーク備忘録</title>
+<title>サンプル</title>
 <meta name="Description" content="" />
 <meta name="Keywords" content="" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
-
-<!-- <style type="text/css">
+<style type="text/css">
 #formWrap {
 	width:700px;
 	margin:0 auto;
@@ -58,71 +57,9 @@ input[type="submit"], input[type="reset"], input[type="button"] {
 	height:40px;
 }
 }
-</style> -->
-
-    <!-- favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
-    <link rel="icon" type="image/png" sizes="152x152" href="img/android-chrome-152x152.png">
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/mail.css" rel="stylesheet">
-
+</style>
 </head>
-
-
 <body>
-  
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Contact Me</h1>
-              <span class="subheading">お問い合わせ</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Main Content -->
 <div id="formWrap">
   <h3>お問い合わせ</h3>
   <p>下記フォームに必要事項を入力後、確認ボタンを押してください。</p>
@@ -149,6 +86,16 @@ input[type="submit"], input[type="reset"], input[type="button"] {
         <td><input size="30" type="text" name="Email" /> ※必須</td>
       </tr>
       <tr>
+        <th>性別</th>
+        <td><input type="radio" name="性別" value="男" /> 男　
+          <input type="radio" name="性別" value="女" /> 女 </td>
+      </tr>
+      <tr>
+        <th>サイトを知ったきっかけ</th>
+        <td><input name="サイトを知ったきっかけ[]" type="checkbox" value="友人・知人" /> 友人・知人　
+          <input name="サイトを知ったきっかけ[]" type="checkbox" value="検索エンジン" /> 検索エンジン</td>
+      </tr>
+      <tr>
         <th>お問い合わせ内容<br /></th>
         <td><textarea name="お問い合わせ内容" cols="50" rows="5"></textarea></td>
       </tr>
@@ -159,57 +106,5 @@ input[type="submit"], input[type="reset"], input[type="button"] {
   </form>
   <p>※IPアドレスを記録しております。いたずらや嫌がらせ等はご遠慮ください</p>
 </div>
-
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/daiyamas" target="_blank">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <p class="copyright text-muted">Copyright &copy; Daiyamas 2018</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.min.js"></script>
-
-<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>  
-    
 </body>
 </html>
