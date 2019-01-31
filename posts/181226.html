@@ -23,6 +23,12 @@
     <!-- Custom styles for this template -->
     <link href="../css/clean-blog.min.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
+    
+    <!-- LightBox -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
 
     <!-- google-code-prettify -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy"></script>
@@ -95,7 +101,10 @@
 　　　　　　<p>またデフォルトでは言語設定は「en」になっているので「ja」に変更も行います。
 　　　　　　<img class="img-fluid shadow" src="images/1226_04.jpg" alt="photo"></p>
 　　　　　　<p>フォントもデフォルトでは欧文フォントの設定しか入っていないため、日本語フォントに変更をかけます。今回は游ゴシック系にしています。body要素、見出し要素、navbarの設定を変更しましたが、元のCSSファイル（clean-blog.css）をチェックしてその他にも欧文フォントのみの設定がないかチェックが必要です。
-　　　　　　<img class="img-fluid shadow" src="images/1226_05.jpg" alt="photo"></p>
+            <a href="images/1226_05.jpg" data-lightbox="abc" data-title="桜写真拡大">
+            <img class="img-fluid shadow" src="images/1226_05.jpg" alt="桜写真">
+            </a>
+            
           </div>
         </div>
       </div>
@@ -141,6 +150,7 @@
     <!-- Custom scripts for this template -->
     <script src="../js/clean-blog.min.js"></script>
     
+
 <p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
 
   </body>
