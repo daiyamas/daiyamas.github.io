@@ -24,6 +24,11 @@
     <link href="../css/clean-blog.min.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
 
+    <!-- LightBox -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+
     <!-- highlight.jsのcss -->
     <link href="../css/railscasts.css" rel="stylesheet">
 
@@ -97,12 +102,14 @@
                 「&] →「&amp;」</p>
             
             <p>変更後のソースは下記になります↓
-            <img class="img-fluid shadow" src="images/1227_03.jpg" alt="変更後のソース表示"></p>
+            <a href="images/1227_031.jpg" data-lightbox="def" data-title="変更後のソース表示">
+            <img class="img-fluid shadow" src="images/1227_03.jpg" alt="photo">
             
-            <p>③貼り付けたいソースコードを&lt;pre&gt;&lt;code&gt;...;&lt;/code&gt;&lt;/pre&gt;で囲みます↓
-            <img class="img-fluid shadow" src="images/1227_04.jpg" alt="ソースコードの変更イメージ">
-            クラス属性もあわせて設定が必要です。今回はhtmlファイルのソースなので「class = “html”」と記述します。</p>
-            <p>④以下のようにhtmlファイル内でソースコードがハイライト表示されました。
+            <p>③貼り付けたいソースコードを&lt;pre&gt;&lt;code&gt;...;&lt;/code&gt;&lt;/pre&gt;で囲みます↓</p>
+            <a href="images/1227_041.jpg" data-lightbox="ghi" data-title="ソースコードの変更イメージ">
+            <img class="img-fluid shadow" src="images/1227_04.jpg" alt="photo">            
+            クラス属性もあわせて設定が必要です。今回はhtmlファイルのソースなので「class = “html”」と記述します。
+            <p>④以下のようにhtmlファイル内でソースコードがハイライト表示されました。</p>
     <pre><code class = “html”>
       &lt;link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.8.0/styles/default.min.css"&gt;
 　　  &lt;script src="//cdn.jsdelivr.net/highlight.js/8.8.0/highlight.min.js">&lt;/script&gt;
