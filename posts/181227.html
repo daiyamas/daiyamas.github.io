@@ -89,7 +89,10 @@
             <p>見出しまわりについては現状、文字サイズの大小のみの設定しか入っていませんが、見出し左や見出し下に罫線を入れた見出しも設定をかけていきます。</p>
             <h3>ソースコードのハイライト表示を設定しました。</h3>
             <p>本ブログは、ワークスキルの業務日報、備忘録として作成して行くため、記事内にソースコードのサンプルを書き留めておくことが必要になります。<br>イメージとしてQuiitaなどで見かけるこれです↓
-            <img class="img-fluid shadow" src="images/1227_06.jpg" alt="ハイライト表示のイメージ画像"></p>
+            <a href="images/1227_061.jpg" data-lightbox="abcde" data-title="ハイライト表示のイメージ画像">
+            <img class="img-fluid shadow" src="images/1227_06.jpg" alt="photo">
+            </a>            
+            
             <p>①今回はhighlight.jsを使用します。導入方法は一番手軽に導入できるCDNからの読み込みを行います。<br>
                 例えば、下記ソースをハイライト表示させたい時。<br>
                 &lt;link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.8.0/styles/default.min.css"&gt;<br>
@@ -102,12 +105,19 @@
                 「&] →「&amp;」</p>
             
             <p>変更後のソースは下記になります↓
-            <a href="images/1227_031.jpg" data-lightbox="def" data-title="変更後のソース表示">
+            
+            
+            <a href="images/1227_031.jpg" data-lightbox="abc" data-title="変更後のソース">
             <img class="img-fluid shadow" src="images/1227_03.jpg" alt="photo">
+            </a>
             
             <p>③貼り付けたいソースコードを&lt;pre&gt;&lt;code&gt;...;&lt;/code&gt;&lt;/pre&gt;で囲みます↓</p>
-            <a href="images/1227_041.jpg" data-lightbox="ghi" data-title="ソースコードの変更イメージ">
-            <img class="img-fluid shadow" src="images/1227_04.jpg" alt="photo">            
+            
+            <a href="images/1227_041.jpg" data-lightbox="abcd" data-title="貼り付けたいソースコード">
+            <img class="img-fluid shadow" src="images/1227_04.jpg" alt="photo">
+            </a>
+            
+            
             クラス属性もあわせて設定が必要です。今回はhtmlファイルのソースなので「class = “html”」と記述します。
             <p>④以下のようにhtmlファイル内でソースコードがハイライト表示されました。</p>
     <pre><code class = “html”>
