@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0225_03.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>HTMLメールの基本を復習してみました。</h1>
+              <span class="meta">投稿日2019.02.25</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <nav aria-label="パンくずリスト">
+          <ol class="breadcrumb mb-1">
+            <li class="breadcrumb-item" ><a href="../index.html"><i class="fa fa-home"  aria-hidden="true"></i>ホーム</a></li>
+            <li class="breadcrumb-item" ><a href="../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a></li>
+            <li class="breadcrumb-item active" aria-current="page">2019/02/25記事</li>
+          </ol>
+        </nav>          
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>HTMLメールはOS、メールクライアント、アプリによって見え方がまちまち。</h3>
+            <p><img class="img-fluid shadow" src="images/0225_01.jpg" alt="photo"></p>
+            <p>メールにはテキストメールとHTMLメールの2タイプがありますが、
+            HTMLメールとは？と尋ねられた際、「html形式で作られたメール」「メーラーによってレイアウトが崩れる」
+            「テキスト画像を配置するのが無難」といった認識程度でした。<br>
+            まとめてみますと以下のとおりです。</p>
+            
+            <ul>
+            <li>初期状態では画像表示が無効化される</li>
+            <li>デザインの実装に使うCSSのサポート状況がバラバラ</li>
+            <li>同じサービスでもブラウザとアプリでは見え方が異なる</li>
+            <li>デバイス幅で表示を変えることができない</li>
+            </ul>
+           
+            <p>そのため、HTMLメールは「テーブルレイアウト」と呼ばれる手法で作成するのが一般的になっています。</p> 
+
+            <h3>HTMLメールの基礎知識</h3>
+            <p>HTMLメールはPC、スマホ、タブレットなどあらゆるデバイスで閲覧することを想定して作成する必要があります。その際、最小限の知識として下記が挙げられます。</p>
+            
+            <h5>PCでの閲覧を中心に考えた場合</h5>
+            <ul>
+            <li>スマホやタブレットなどデバイスの画面幅に合わせて表示を最適化させる</li>
+            <li>横幅は500〜600px前後で考える</li>
+            </ul>
+            
+            <h5>モバイルデバイスでの閲覧を中心に考えた場合</h5>
+            <ul>
+            <li>基本はシングルカラムレイアウト</li>
+            <li>文字の大きさは最低13pt、本文は14〜20pt</li>
+            <li>テキスト画像を多用しない</li>
+            <li>画像ファイルは極限まで軽量化</li>
+            <li>リンクなどのボタンの高さは最低44px</li>
+            </ul>            
+
+            <h5>HTMLメールで使える要素</h5>
+            <p>メーラーによって一切解釈されないタグ等が発生するため、下記要素を使用して作成する。<br>
+            &lt;a&gt; &lt;b&gt; &lt;br&gt; &lt;div&gt; &lt;font&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;h4&gt; &lt;h5&gt; &lt;h6&gt; &lt;head&gt; &lt;hr&gt; &lt;img&gt; &lt;label&gt; &lt;li&gt; &lt;ol&gt; &lt;p&gt; &lt;span&gt; &lt;strong&gt; &lt;table&gt; &lt;td&gt; &lt;th&gt; &lt;tr&gt; &lt;u&gt; &lt;ul&gt;</p>
+            
+            <h5>レイアウトの基本はテーブル要素</h5>
+            <p>HTMLメールは様々なメーラーでの表示を考慮して、
+            旧来のtable要素を用いたページレイアウトの手法でページを作成するのが一般的だそうです。
+            余白の設定はpaddingやmarginを用いないで、table要素のセル内の余白を指定するcelpadding属性を用います。</p>
+            <p>▼td要素の中に複数のtable要素を縦につなぐ方法を以下のサンプルソースで作成してみました。</p>
+<pre><code class = “html”>
+&lt;table width="600" cellpadding="20" cellspacing="0" align="center"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+
+        &lt;table width="100%" cellpadding="0" cellspacing="0" border="1"&gt;&lt;!-- td要素の中に挿入したtable要素1 --&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+
+              &lt;h1&gt;大見出しとなるテキスト&lt;/h1&gt;
+              &lt;p&gt;リードや本文テキスト…&lt;/p&gt;
+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+
+        &lt;br /&gt;&lt;!-- スペースを取るためにはbrタグを挿入 --&gt;
+
+        &lt;table width="100%" cellpadding="0" cellspacing="0" border="1"&gt;&lt;!-- td要素の中に挿入したtable要素2 --&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+
+              &lt;h2&gt;中見出しとなるテキスト&lt;/h2&gt;
+              &lt;p&gt;本文テキスト…&lt;/p&gt;
+              &lt;p&gt;本文テキスト…&lt;/p&gt;
+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+            <h3>デバイス幅に合わせた1カラムのHTMLメール</h3>
+            <p>デバイス幅に左右されないようスマートフォンでも等倍表示する方法を用いて、HTMLメールのベースとなるテンプレートを作成してみました。
+            必要となる要素は下記になります。</p>
+            
+            <h5>文章型宣言</h5>
+            <p>HTML 4.01 TransitionalまたはXHTML 1.0 Transitionalになります。</p>
+            
+            <h5>HTML開始宣言</h5>
+            <p>&lt;html&gt;で始まるhtml要素を記述します。</p>
+            
+            <h5>head要素</h5>
+            <p>&lt;head&gt;&lt;/head&gt;で囲まれるhead要素に文字コード、ページタイトル、デバイスでの表示幅に関する記述を行います。</p>
+            
+            <h5>body要素</h5>
+            <p>&lt;body&gt;&lt;/body&gt;で囲まれる要素。メールの本文要素が入リます。</p>
+            
+            <p>スマートデバイスで縮小されず、デバイスの幅に合わせてコンテンツを表示するには、table要素のwidth属性に100%を設定します。</p>
+            
+            <p>▼前述の要件を踏まえたサンプルコードは下記になります。</p>
+            
+<pre><code class = “html”>
+ &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+ &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja"&gt;
+ &lt;head&gt;
+   &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /&gt;
+   &lt;meta name="viewport" content="width=device-width,initial-scale=1.0" /&gt;
+   &lt;title&gt; &lt;/title&gt;
+ &lt;/head&gt;
+
+ &lt;body&gt;
+
+   &lt;table width="100%" cellpadding="20" cellspacing="0"&gt;
+     &lt;tr&gt;
+       &lt;td&gt;
+
+         &lt;h1&gt;大見出しとなるテキスト &lt;/h1&gt;
+         &lt;p&gt;リードや本文テキスト… &lt;/p&gt;
+         &lt;h2&gt;中見出しとなるテキスト &lt;/h2&gt;
+         &lt;p&gt;本文テキスト… &lt;/p&gt;
+         &lt;p&gt;本文テキスト… &lt;/p&gt;
+
+       &lt;/td&gt;
+     &lt;/tr&gt;
+   &lt;/table&gt;
+
+ &lt;/body&gt;
+ &lt;/html&gt;
+</code></pre>
+
+            <h3>HTMLメールでCSSを使う時の注意点</h3>
+            <p>HTMLメールでは、CSSファイルを無視するメールクライアントやWebメールサービスが多々あります。どのCSSが使えるのか？「テーブルレイアウト」で構造的に実現可能なデザインはどんなものか？を踏まえてデザインを考えていくことが大切。基本は、HTMLファイル内でstyle属性を使って直接記述していきます。</p>
+            <p><img class="img-fluid shadow" src="images/0225_04.jpg" alt="photo"></p>
+            <p>▼メーラー、WebメールサービスのCSSサポート状況はこちらからチェックできます。
+            <a href="https://www.campaignmonitor.com/css/" target="_blank">https://www.campaignmonitor.com/css/</a></p>
+            
+            
+            <p>上記内容は下記書籍を参考にまとめております。<br>
+            出典：レスポンシブEメールデザイン／株式会社KADOKAWA　著：こもりまさあき</p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
