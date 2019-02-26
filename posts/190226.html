@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0226_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>HTML形式の1カラムのメールを作成してみました。</h1>
+              <span class="meta">投稿日2019.02.26</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <nav aria-label="パンくずリスト">
+          <ol class="breadcrumb mb-1">
+            <li class="breadcrumb-item" ><a href="../index.html"><i class="fa fa-home"  aria-hidden="true"></i>ホーム</a></li>
+            <li class="breadcrumb-item" ><a href="../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a></li>
+            <li class="breadcrumb-item active" aria-current="page">2019/02/26記事</li>
+          </ol>
+        </nav>          
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>HTML冒頭は文章型宣言、html要素、head要素を記述します。</h3>
+            <p>2/25（月）の記事でまとめのおさらいになりますが、文章型宣言、HTML開始宣言を以下のように記述していきます。</p>
+ 
+<div class="module_code">▼文章型宣言、HTML開始宣言の記述</div>
+<pre><code class = “html”>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”&gt; 
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja”&gt;
+
+</code></pre>
+
+            <p>続くhead要素では、文字コード、ページタイトル、viewportを設定します。</p> 
+<div class="module_code">▼文字コード、ページタイトル、viewportの記述</div>
+<pre><code class = “html”>
+  &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /&gt; 
+  &lt;meta name="viewport" content="width=device-width,initial-scale=1.0" /&gt; 
+  &lt;title&gt;&lt;/title&gt;
+  
+</code></pre>
+
+            <h3>body要素にはメール本文を設定します。</h3>
+            <p>Body要素に入るメール本文は2/25（月）の記事でもまとめたとおり、テーブルレイアウトで記述していきます。
+            その際、table要素の幅、セル内の余白設定はtebleタグ内に記述することも忘れずに行います。</p>
+<div class="module_code">▼body要素の記述</div>
+<pre><code class = “html”>
+&lt;body&gt;
+  &lt;table width="100%" cellpadding="20" cellspacing="0"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;h1&gt;Responsive Email Letter&lt;/h1&gt;
+        &lt;p&gt;レスポンシブEメールに関する情報を提供します。&lt;/p&gt;
+        &lt;h2&gt;New Devices&lt;/h2&gt;
+        &lt;p&gt;新しいスマートフォンが数機種発売されています。CSSのサポート状況については、情報が入り次第お届けします。&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+</code></pre>
+            <p>上記記述をひとつのファイルにまとめたものが下記になります。</p>
+<div class="module_code">▼1カラムHTMLメールのサンプル</div>
+<pre><code class = “html”>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width,initial-scale=1.0" /&gt;
+  &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table width="100%" cellpadding="20" cellspacing="0"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;h1&gt;Responsive Email Letter&lt;/h1&gt;
+        &lt;p&gt;レスポンシブEメールに関する情報を提供します。&lt;/p&gt;
+        &lt;h2&gt;New Devices&lt;/h2&gt;
+        &lt;p&gt;新しいスマートフォンが数機種発売されています。CSSのサポート状況については、情報が入り次第お届けします。&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+            <h3>CSSはhead要素内に記述します。</h3>
+            <p>HTMLメールでは、外部ファイルのCSSを読み込めないケースを避けるため、html内にCSSの記述を行います。<br>方法としてはhead要素内に、&lt;style type=“text/css”&gt;と&lt;/style&gt;に囲まれたstyle要素を追加して、この中に記述を行います。前述のサンプルメールにCSSの記述を行なったものが下記になります。</p>
+<div class="module_code">▼1カラムHTMLメールのサンプル（CSS記述入り）</div>
+<pre><code class = “html”>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width,initial-scale=1.0" /&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;style type="text/css" &gt;
+  body {
+    font-family: sans-serif;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  table, td {
+    border-collapse: collapse;
+    mso-table-lspace: 0;
+    mso-table-rspace: 0;
+  }
+  a {
+    text-decoration: underline;
+  }
+  img {
+    border: 0 none;
+    height: auto;
+    line-height: 1;
+    outline: none;
+    text-decoration: none;
+  }
+  a img {
+    border: 0 none;
+    text-decoration: none;
+  }
+    h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.1;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  p {
+    color: #333;
+    font-size: 17px;
+    line-height: 1.47;
+  }
+
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table width="100%" cellpadding="20" cellspacing="0"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;h1&gt;Responsive Email Letter&lt;/h1&gt;
+        &lt;p&gt;レスポンシブEメールに関する情報を提供します。&lt;/p&gt;
+        &lt;h2&gt;New Devices&lt;/h2&gt;
+        &lt;p&gt;新しいスマートフォンが数機種発売されています。CSSのサポート状況については、情報が入り次第お届けします。&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+            <h3>CSSをインラインスタイルに変換します。</h3>
+            <p>style要素に記述したCSSはメーラーによっては反映されない(Gmail)ことがあります。
+            そのため、CSSの記述はインラインスタイル（各要素の開始タグ内に直接CSSのコードを書き込んでいくこと）に変換します。</p>
+            <p>インライスタイルへの変換は手動だと面倒になりますので、ここでは「CSS Inliner Tool」という自動変換サービスを使用します。
+            使用するhtmlソースをコピペして、変換ボタンをクリックすると自動で変換後のソースが表示されます。</p>
+            <p><img class="img-fluid shadow" src="images/0226_02.jpg" alt="photo"></p>
+<div class="module_code">▼インラインスタイル変換後のソース(style要素内のCSS記述は削除済)</div>
+<pre><code class = “html”>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+  &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style="font-family: sans-serif;font-size: 17px;padding: 0;margin: 0;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;"&gt;
+  &lt;table width="100%" cellpadding="20" cellspacing="0" style="border-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;"&gt;
+    &lt;tr&gt;
+      &lt;td style="border-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;"&gt;
+        &lt;h1 style="margin: 0;line-height: 1.1;font-size: 24px;"&gt;Responsive Email Letter&lt;/h1&gt;
+        &lt;p style="color: #333;font-size: 17px;line-height: 1.47;"&gt;レスポンシブEメールに関する情報を提供します。&lt;/p&gt;
+        &lt;h2 style="margin: 0;line-height: 1.1;font-size: 22px;"&gt;New Devices&lt;/h2&gt;
+        &lt;p style="color: #333;font-size: 17px;line-height: 1.47;"&gt;新しいスマートフォンが数機種発売されています。CSSのサポート状況については、情報が入り次第お届けします。&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+            <h3>画像を挿入する。</h3>
+            <p>HTMLメールに画像を挿入する際は、img要素を用い、画像のパスは絶対パスで記述します。
+            サンプル画像を挿入したソースが下記になります。</p>
+<div class="module_code">▼1カラムHTMLメールのサンプル（画像入り）</div>
+<pre><code class = “html”>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width,initial-scale=1.0" /&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;style type="text/css"&gt;
+  body {
+    font-family: sans-serif;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  table,
+  td {
+    border-collapse: collapse;
+    mso-table-lspace: 0;
+    mso-table-rspace: 0;
+  }
+  a {
+    text-decoration: underline;
+  }
+  img {
+    border: 0 none;
+    height: auto;
+    line-height: 1;
+    outline: none;
+    text-decoration: none;
+  }
+  a img {
+    border: 0 none;
+    text-decoration: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.1;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.47;
+  }
+  .wrapper {
+    margin: 0 auto;
+  }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table width="520" cellpadding="20" cellspacing="0" align="center" class="wrapper"&gt;
+    &lt;!-- 画像を挿入しているtr要素の行 --&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+
+        &lt;table cellpadding="0" cellspacing="0"&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+
+                &lt;img src="http://placehold.it/480x297" alt="ヘッダー画像" width="480" /&gt;
+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;!-- 本文のテキストが入るtr要素の行 --&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+
+        &lt;table cellpadding="0" cellspacing="0"&gt;
+          &lt;tr&gt;
+            &lt;td&gt;
+
+              &lt;h1&gt;Responsive Email Letter&lt;/h1&gt;
+              &lt;p&gt;レスポンシブEメールに関する情報を提供します。&lt;/p&gt;
+              &lt;h2&gt;New Devices&lt;/h2&gt;
+              &lt;p&gt;新しいスマートフォンが数機種発売されています。CSSのサポート状況については、情報が入り次第お届けします。&lt;/p&gt;
+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            
+            <p>上記ソースをGmailで新規作成し、テスト送信してみました。問題なく表示されています。</p>
+            <p><img class="img-fluid shadow" src="images/0226_03.jpg" alt="photo"></p>
+            
+            
+            <p>上記内容は下記書籍を参考にまとめております。<br>
+            出典：レスポンシブEメールデザイン／株式会社KADOKAWA　著：こもりまさあき</p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
