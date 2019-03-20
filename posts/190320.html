@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0320_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+                  <h1>イメージマップのソース記述法。</h1>
+              <span class="meta">投稿日2019.03.20</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <nav aria-label="パンくずリスト">
+          <ol class="breadcrumb mb-1">
+            <li class="breadcrumb-item" ><a href="../index.html"><i class="fa fa-home"  aria-hidden="true"></i>ホーム</a></li>
+            <li class="breadcrumb-item" ><a href="../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a></li>
+            <li class="breadcrumb-item active" aria-current="page">2019/03/20記事</li>
+          </ol>
+        </nav>          
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h3>マウスでドラッグするだけで、ソースが自動生成されます。</h3>
+            <p>イメージマップは画像の一部にリンクをかける際使用していた機能ですが、
+            私の場合Dreamweaverの自動生成機能を使用していたため、ソースを記述した経験がありません。<br>
+            いろいろと調べてみると、基本は座標を記述していくようですが、複雑なかたちをした画像（例えば人間のシルエットなど）に
+            リンクを設定する場合どうすればよいのか。早速便利なツールを見つけました。
+            </p>
+
+            <p>「<a href="https://labs.d-s-b.jp/ImagemapGenerator/" target="_blank">HTML Imagemap Generator</a>」というツールです。<br>
+            このツールを使うと簡単な方法でイメージマップのリンクのソースが自動で生成できます。<br>
+            以下、作成方法です。</p>
+            <hx>【HTML Imagemap Generator】</hx>
+            <ol>
+            <li>リンクを設定したい画像を用意する。</li>                
+            <li>HTML Imagemap Generatorをブラウザで開く。</li>
+            <li>画像をHTML Imagemap Generatorの該当スペースにドラッグ＆ドロップする。</li>
+            <li>ウインド右上にある描画メニューを選び、リンクをかけたい箇所をドラッグしていく</li>
+            <li>描画を終了すると、ウインド右側に自動生成されたソースが表示される。</li>
+            </ol>            
+             <p>上記の手順で作成されたソースをhtmlファイルに追記すれば完成です。<br>
+            イメージマップについてはレスポンシブに対応させる場合には、どうすればいいのか
+            という疑問も解決できていませんので、追って調べていきたいと思います。
+           </p>
+         <p><img class="img-fluid shadow" src="images/0320_02.jpg" alt="photo"></p>
+
+<div class="module_code">▼自動生成されたソース</div>
+<pre><code class = “html”>
+&lt;img src="image01.jpg" usemap="#ImageMap" alt="" /&gt;
+&lt;map name="ImageMap"&gt;
+  &lt;area shape="poly" coords="422,51,434,78,434,78,434,78,422,62,433,79,445,119,442,148,434,166,412,195,392,205,376,227,396,239,408,254,417,280,423,319,424,371,423,408,282,407,286,388,267,387,265,380,262,378,233,414,80,400,66,398,61,387,58,383,7,240,7,223,7,220,28,206,68,190,109,179,115,183,119,188,144,259,157,308,158,327,179,326,176,323,178,318,189,311,206,311,214,306,226,306,228,301,278,299,294,271,295,263,294,251,278,257,238,255,216,244,202,235,198,229,198,220,202,201,201,187,194,164,189,141,188,131,186,139,182,141,176,131,173,119,173,101,178,84,187,63,217,35,259,12,292,5,311,5,334,6,355,8,381,23,387,27,393,14,398,12,406,20,404,31,411,24,419,34,418,39,410,41,410,41,410,41" href="#" alt="" /&gt;
+&lt;/map&gt;
+</code></pre>
+           
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
