@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>D-blog - daiyamasのワーク備忘録</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="../img/android-chrome-152x152.png">
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- highlight.jsのcss -->
+    <link href="../css/railscasts.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i>D-blog</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html"><i class="fas fa-user" aria-hidden="true"></i>自己紹介</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html"><i class="fa fa-envelope" aria-hidden="true"></i>お問い合わせ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/0322_01.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+                  <h1>HTML Imagemap Generatorを使って、イメージマップを実装する方法。</h1>
+              <span class="meta">投稿日2019.03.22</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    
+    <article>
+      <div class="container">
+        <nav aria-label="パンくずリスト">
+          <ol class="breadcrumb mb-1">
+            <li class="breadcrumb-item" ><a href="../index.html"><i class="fa fa-home"  aria-hidden="true"></i>ホーム</a></li>
+            <li class="breadcrumb-item" ><a href="../post.html"><i class="fa fa-pen-nib" aria-hidden="true"></i>備忘録</a></li>
+            <li class="breadcrumb-item active" aria-current="page">2019/03/22記事</li>
+          </ol>
+        </nav>          
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+            <h3>画像内の円形部分にリンク設定をかけてみました。</h3>
+            <p>3/20の記事で紹介したHTML Imagemap Generatorを使って、イメージマップの実装を行ってみました。<br>
+            円形の画像を追加した角版の画像を使用します。<br>
+            HTML Imagemap Generatorのウインド内に該当の画像をドラッグ＆ドロップし、リンクをかけたい箇所を
+            マウスでドラッグすると、リンクをかけたい箇所が水色で囲まれます。</p>
+
+            <p>[esc]キーを押すと、ウインド右側に該当のコードが自動生成されます。</p>
+            
+            <div class="module_code">▼自動生成されたソース</div>
+            <pre><code class = “html”>
+&lt;img src="タイトルなし.jpg" usemap="#ImageMap" alt="" /&gt;
+&lt;map name="ImageMap"&gt;
+&lt;area shape="poly" coords="206,162,218,173,230,184,237,199,243,214,246,240,243,255,232,279,226,298,215,305,198,316,179,323,165,328,153,328,142,328,125,326,112,323,103,316,94,311,86,306,77,293,66,281,64,271,58,260,52,243,52,232,58,209,69,188,86,170,101,160,112,154,126,147,143,143,161,145,174,147,190,152,202,159,202,159" href="#" alt="" /&gt;
+&lt;/map&gt
+            
+            </code></pre>
+
+            <p>ソース内href="#"にリンク先のパスを記述します。このケースではTOPページに戻る設定にしたいので
+            「href="../"」となります。
+            altタグには「TOPへ戻る」と記述します。
+            htmlファイル内に記述するソースは以下で完了です。</p>
+
+            <div class="module_code">▼完成したソース</div>
+            <pre><code class = “html”>
+&lt;img src="images/0322_02.jpg" usemap="#ImageMap" alt="TOPへ戻る" /&gt;
+&lt;map name="ImageMap"&gt;
+&lt;area shape="poly" coords="206,162,218,173,230,184,237,199,243,214,246,240,243,255,232,279,226,298,215,305,198,316,179,323,165,328,153,328,142,328,125,326,112,323,103,316,94,311,86,306,77,293,66,281,64,271,58,260,52,243,52,232,58,209,69,188,86,170,101,160,112,154,126,147,143,143,161,145,174,147,190,152,202,159,202,159" href="../" alt="TOPへ戻る" /&gt;
+&lt;/map&gt;
+
+            </code></pre> 
+            
+            <p>これだけでは完成となりません。画像そのものはレスポンシブ対応になっていますが、
+            イメージマップのリンク設定がレスポンシブ非対応なので、スクリーンの幅を可変させるとリンク範囲がずれてしまいます。</p>
+            
+            <p>そこで「jQuery RWD Image Maps」を実装することで対処できます。<br>
+            具体的には、下記1～2の手順で設定を行います。</p>
+            
+            <ol>
+            <li>jsファイル「jquery.rwdImageMaps.js」を該当箇所にアップロード。</li>                
+            <li>htmlページ内に下記スクリプトのソースを記述。</li>
+            </ol>         
+                        
+            <div class="module_code">▼スクリプトのソース</div>
+            <pre><code class = “html”>
+&lt;script src="../js/jquery.rwdImageMaps.js" &gt; &lt;/script &gt;
+&lt;script &gt;
+$(document).ready(function(e) {
+$('img[usemap]').rwdImageMaps();
+});
+&lt;/script &gt;
+
+            </code></pre>  
+            
+            
+            <p>以上で完成です。<br>
+            下記がサンプルになります。スクリーンの幅を変えても問題なく動作しています。
+
+            <img class="img-fluid shadow" src="images/0322_02.jpg" usemap="#ImageMap" alt="TOPへ戻る" />
+            <map name="ImageMap">
+              <area shape="poly" coords="206,162,218,173,230,184,237,199,243,214,246,240,243,255,232,279,226,298,215,305,198,316,179,323,165,328,153,328,142,328,125,326,112,323,103,316,94,311,86,306,77,293,66,281,64,271,58,260,52,243,52,232,58,209,69,188,86,170,101,160,112,154,126,147,143,143,161,145,174,147,190,152,202,159,202,159" href="../" alt="TOPへ戻る" />
+            </map> </p>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/daiyamas" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; daiyamas 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../js/clean-blog.min.js"></script>
+    
+    <!-- highlight.js -->
+    <script src="../js/highlight.pack.js"></script>
+　　<script>hljs.initHighlightingOnLoad();</script>
+　　
+
+    <script src="../js/jquery.rwdImageMaps.js"></script>
+    <script>
+	$(document).ready(function(e) {
+		$('img[usemap]').rwdImageMaps();
+	});
+    </script>
+　　
+<p id="page-top"><a href="#"><i class="fas fa-arrow-circle-up"></i> ページTOP</a></p>
+
+  </body>
+
+</html>
