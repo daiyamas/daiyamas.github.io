@@ -1,0 +1,299 @@
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  width: 1170px;
+  margin: 0 auto;
+}
+
+li img {
+  width: 50%;
+}
+
+li h2 {
+  font-weight: normal;
+}
+
+.top-wrapper {
+  padding: 180px 0 250px 0;
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(25deg, rgba(255, 87, 191, 0.562), rgba(46, 213, 255, 0.39)), url(img/top.jpg);
+  color: white;
+  text-align: center;
+}
+
+.top-wrapper h1 {
+  opacity: 0.7;
+  font-size: 50px;
+  letter-spacing: 5px;
+  padding-top: 30px;
+}
+
+.top-wrapper h4 {
+  opacity: 0.7;
+  letter-spacing: 5px;
+  font-weight: normal;
+}
+
+.btn-wrapper {
+  margin: 20px 0;
+}
+
+.btn-wrapper p {
+  margin: 10px 0;
+}
+
+.signup {
+  background-color: #239b76;
+}
+
+.btn {
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+}
+
+.logo {
+  width: 100px;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.5s;
+}
+
+.header-right:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+}
+
+.news {
+  margin: 0 auto;
+  width: 810px;
+  height: 250px;
+  padding-bottom: 250px;
+}
+
+.news h2 {
+  text-align: center;
+}
+
+.news h5 {
+  text-align: center;
+}
+
+.lesson-wrapper {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 300px;
+  text-align: center;
+  background-color: rgb(203, 225, 238);
+}
+
+.lesson-wrapper2 {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 200px;
+  text-align: center;
+  background-color: rgb(203, 225, 238);
+}
+
+.menu {
+  height: 100px;
+  background-color: #fff;
+  text-align: center;
+  width: 100%;
+  margin: 80px 0 150px 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.heading {
+  padding-top: 60px;
+  padding-bottom: 50px;
+  color: #5f5d60;
+  text-align: center;
+}
+
+.heading3 p {
+  line-height: 18px;
+}
+
+.midashi {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.komidashi {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.heading3 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  color: #5f5d60;
+}
+
+.heading2 h5 {
+  padding-bottom: 10px;
+  margin-bottom: 80px;
+}
+
+.lesson-icon {
+  position: relative;
+}
+
+.lesson-icon p {
+  font-family: 'Yu Gothic UI','Osaka','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
+  position: absolute;
+  top: 125px;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+}
+
+.flex2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.lesson-icon img:hover {
+  opacity: 0.8;
+  transition-duration: 0.3s;
+  transform: scale(1.01)
+}
+
+.lesson-icon img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.heading h3 {
+  font-weight: normal;
+}
+
+.message-wrapper {
+  height: 300px;
+  padding-bottom: 200px;
+  text-align: center;
+  background-image: url(img/kankyou.jpg);
+  background-size: cover;
+}
+
+.message {
+  padding: 15px 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  box-shadow: 0 7px #1a7940;
+}
+
+.message:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+.heading2 h2 {
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.heading2 h3 {
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.heading2 {
+  padding: 100px 0 30px 0;
+}
+
+footer img {
+  width: 150px;
+  padding: 50px 0 20px 0;
+}
+
+.container2 {
+  padding: 0 15px;
+}
+
+footer p {
+  color: #b3aeb5;
+  font-size: 12px;
+}
+
+.footer-li {
+  float: right;
+  font-size: 14px;
+  padding: 10px 40px 0 0;
+  line-height: 1.8;
+}
+
+a:link {
+  color: #ffffff;
+}
+
+a:visited {
+  color: #7cd5ff;
+}
+
+footer {
+  background-color: rgba(34, 49, 52, 0.9);
+  width: 100%;
+  height: 150px;
+}
