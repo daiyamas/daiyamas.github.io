@@ -10,7 +10,9 @@ body {
 font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
 }
 
-.btn {
+
+
+.btn  {
 display: flex;
 align-items: center;
 justify-content: center;
@@ -81,6 +83,86 @@ text-decoration: none;
 color: #333333;
 } 
 
+
+
+.btn00 {
+overflow: hidden;
+}
+.btn00, li {
+display: flex;
+margin: 1%;
+flex-wrap: wrap;
+}
+
+.btn00 img{
+ transition:1s all;
+}
+.btn00 img:hover{
+  transform:scale(1.1,1.1);
+  transition:.3s all;
+}
+.c-btn {
+  background: #bf0000;
+  border: 1px solid #333333;
+  border-radius: 60px;
+  color: #fff;
+  display: block;
+  max-width: 300px;
+  padding: 5px 40px;
+  text-align: center;
+}
+
+.c-btn,ul {
+display: flex;
+/* margin: 1%; */
+flex-wrap: wrap;
+
+}
+ 
+.c-btn.circle {
+  background: #fff;
+  color: #bf0000;
+  overflow: hidden;
+  position: relative;
+  transition-duration: .4s;
+  z-index: 2;
+}
+.c-btn.circle::after {
+  background: #bf0000;
+  color: #ffffff !important;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  margin: auto;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding-top: 100%;
+  height: 0;
+  z-index: -1;
+  transform: translateY(-50%) scale(0.1);
+  transition: opacity .5s, transform 0s;
+  transition-delay: 0s, .4s;
+}
+ 
+.circle:hover {
+  color: #fff;
+}
+.c-btn.circle a:hover {
+  color: #fff;
+}
+.c-btn.circle:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  transition-delay: 0s;
+  transition: opacity .8s, transform .6s ease-in-out;
+}
+ 
+
 .menu_tit {
 font-size: 20px;
 font-weight: 600;
@@ -91,10 +173,67 @@ font-weight: 600;
 margin-top: 50px;
 }
 
+.keyword ul li {
+    font-size: 14px;
+    /* font-weight: 700; */
+    margin: 0 16px 16px 0;
+    display: inline-block;
+}
+
+.keyword ul li a {
+    display: inherit;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #333333;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+.keyword ul li a:hover {
+    color: #ffffff;
+    background-color: #bf0000;
+    border: 1px solid #bf0000;
+}
+
 </style>
 </head>
 <body>
-<div class="menu01">
+
+<div class="menu00">
+<p class="menu_tit">
+カテゴリから選ぶ
+</p>
+<ul>
+<li class="btn00">
+<a href="#">
+    <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/767376ead2e7c63ac7a0c45da007b821ebd224c5.95.9.9.3.jpeg" alt="">
+</a>
+</li>
+<li class="btn00">
+    <a href="#">
+        <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/1f21dce1f959243e0633e6bd8e4a0ca9bcab72b8.95.9.9.3.jpeg" alt="">
+    </a>
+    </li>
+    <li class="btn00">
+        <a href="#">
+            <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/1dbab5ca9ab99b1b7c369741b4ecfe1c3737c0bf.95.9.9.3.jpeg" alt="">
+        </a>
+        </li>
+        <li class="btn00">
+            <a href="#">
+                <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/9ee68f5ae47bb5e8d4fbe6be173336291a09fe15.95.9.9.3.jpeg" alt="">
+            </a>
+            </li>
+
+</ul>        
+</div>
+<!-- <div class="menu01 mt50">
 <p class="menu_tit">
 カテゴリから選ぶ
 </p>
@@ -112,7 +251,7 @@ margin-top: 50px;
 <a href="#">自己を変える</a>
 </li>
 </ul>        
-</div>
+</div> -->
 <div class="menu02 mt50">
 <p class="menu_tit">
 楽天主義<br>
@@ -163,47 +302,121 @@ margin-top: 50px;
 機会に応じて
 </p>
 <ul>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">用意周到</a>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">大義名分</a>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">信念不抜<br>-GET THINGS DONE-</a>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">常に改善、常に前進</a>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">顧客満足の最大化</a>
 </li>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">Mission<br>ーイノベーションを通じて</a>
 </li>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">Professionalismの徹底</a>
 </li>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">スピード!!スピード!!スピード!!</a>
 </li>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">一致団結</a>
 </li>
 </li>
-<li class="btn">
+<li class="c-btn circle">
 <a href="#">仮説→実行→検証→仕組化</a>
 </li>
 </ul>        
 </div>
 
-<div class="menu05 mt50">
-<p><a href="#">＃正しさ</a>　<a href="#">＃成長。限界突破</a>　<a href="#">＃チーム</a>　<a href="#">＃成功</a>　<a href="#">＃ブランド</a>　<a href="#">＃ヒト</a>　<a href="#">＃サービス</a>　<a href="#">＃小さく生んで大きく育てる</a>　<a href="#">＃運</a>　<a href="#">＃やりがい</a>　<a href="#">＃アイデア</a>　<a href="#">＃人生</a>　<a href="#">＃客観視</a>　<a href="#">＃勉強</a>　<a href="#">＃成功。目標達成。癖</a>　<a href="#">＃継続</a>　<a href="#">＃言語化</a>　<a href="#">＃情報</a>　<a href="#">＃目標</a>　<a href="#">＃失敗</a>　<a href="#">＃直観</a>　<a href="#">＃フレームワーク</a>　<a href="#">＃課題</a>
+<div class="keyword">
+<p class="menu_tit">
+    キーワードで探す
+    </p>
+<ul>
+    <li>
+        <a href="#">＃正しさ</a>
+    </li>
+    <li>
+        <a href="#">＃成長。限界突破</a>
+    </li>
+    <li>
+        <a href="#">＃チーム</a>
+    </li>
+    <li>
+        <a href="#">＃成功</a>
+    </li>
+    <li>
+        <a href="#">＃ブランド</a>
+    </li>
+    <li>
+        <a href="#">＃ヒト</a>
+    </li>
+    <li>
+        <a href="#">＃サービス</a>
+    </li>
+    <li>
+        <a href="#">＃小さく生んで大きく育てる</a>
+    </li>
+    <li>
+        <a href="#">＃運</a>
+    </li>
+    <li>
+        <a href="#">＃やりがい</a>
+    </li>
+    <li>
+        <a href="#">＃アイデア</a>
+    </li>
+    <li>
+        <a href="#">＃人生</a>
+    </li>
+    <li>
+        <a href="#">＃客観視</a>
+    </li>
+    <li>
+        <a href="#">＃勉強</a>
+    </li>
+    <li>
+        <a href="#">＃成功。目標達成。癖</a>
+    </li>
+    <li>
+        <a href="#">＃継続</a>
+    </li>
+    <li>
+        <a href="#">＃言語化</a>
+    </li>
+    <li>
+        <a href="#">＃情報</a>
+    </li>
+    <li>
+        <a href="#">＃目標</a>
+    </li>
+    <li>
+        <a href="#">＃失敗</a>
+    </li>
+    <li>
+        <a href="#">＃直観</a>
+    </li>
+    <li>
+        <a href="#">＃フレームワーク</a>
+    </li>
+    <li>
+        <a href="#">＃課題</a>
+    </li>
+</ul>
 </div>
+
 
 </body>
 </html>
