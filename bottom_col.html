@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+body {
+font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+
+
+.btn  {
+display: flex;
+align-items: center;
+justify-content: center;
+line-height: 1;
+text-align: center;
+text-decoration: none;
+color: #333333;
+font-size: 16px;
+border-radius: 5px;
+width: 320px;
+height: 40px;
+border: 1px solid #333333;
+position: relative;
+transition: 0.3s;
+background-color: #FFFFFFFF;
+}
+
+.btn::before, .btn::after {
+content: "";
+display: block;
+position: absolute;
+top: 50%;
+right: 15px;
+transform-origin: 100% 50%;
+height: 1px;
+width: 11px;
+background-color: #333;
+border-radius: 2px;
+will-change: transform;
+transition: .3s;
+}
+
+.btn::before {
+transform: translateY(-50%) rotate(30deg);
+}
+
+.btn::after {
+transform: translateY(-50%) rotate(-30deg);
+}
+
+.btn:hover::before {
+transform: translate(5px, -50%) rotate(30deg);
+}
+
+.btn:hover::after {
+transform: translate(5px, -50%) rotate(-30deg);
+}
+
+.btn:hover {
+background-color: #777777;
+}
+
+
+
+.btn,ul {
+display: flex;
+margin: 1%;
+flex-wrap: wrap;
+/* justify-content: center; */
+}
+
+.btn,li {
+margin-bottom: 10px;
+}
+
+.btn,li,a {
+text-decoration: none;
+color: #333333;
+font-size: 13px;
+} 
+
+
+
+.btn00 {
+overflow: hidden;
+}
+.btn00, li {
+display: flex;
+margin: 1%;
+flex-wrap: wrap;
+}
+
+.btn00 img{
+ transition:1s all;
+ width: 100%;
+}
+.btn00 img:hover{
+  transform:scale(1.1,1.1);
+  transition:.3s all;
+}
+.c-btn {
+  background: #bf0000;
+  border: 1px solid #333333;
+  border-radius: 60px;
+  color: #fff;
+  display: block;
+  max-width: 300px;
+  padding: 5px 40px;
+  text-align: center;
+}
+
+.c-btn,ul {
+display: flex;
+/* margin: 1%; */
+flex-wrap: wrap;
+
+}
+ 
+.c-btn.circle {
+  background: #fff;
+  color: #bf0000;
+  overflow: hidden;
+  position: relative;
+  transition-duration: .4s;
+  z-index: 2;
+}
+.c-btn.circle::after {
+  background: #bf0000;
+  color: #ffffff !important;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  margin: auto;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding-top: 100%;
+  height: 0;
+  z-index: -1;
+  transform: translateY(-50%) scale(0.1);
+  transition: opacity .5s, transform 0s;
+  transition-delay: 0s, .4s;
+}
+ 
+.circle:hover {
+  color: #fff;
+}
+.c-btn.circle a:hover {
+  color: #fff;
+}
+.c-btn.circle:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  transition-delay: 0s;
+  transition: opacity .8s, transform .6s ease-in-out;
+}
+ 
+
+.menu_tit {
+font-size: 20px;
+font-weight: 600;
+/* text-align: center; */
+}
+
+.mt50 {
+margin-top: 50px;
+}
+
+.keyword ul li {
+    font-size: 14px;
+    /* font-weight: 700; */
+    margin: 0 16px 16px 0;
+    display: inline-block;
+}
+
+.keyword ul li a {
+    display: inherit;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #333333;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+.keyword ul li a:hover {
+    color: #ffffff;
+    background-color: #bf0000;
+    border: 1px solid #bf0000;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div class="keyword">
+<p class="menu_tit">
+    キーワードで探す
+    </p>
+<ul>
+    <li>
+        <a href="#">＃正しさ</a>
+    </li>
+    <li>
+        <a href="#">＃成長。限界突破</a>
+    </li>
+    <li>
+        <a href="#">＃チーム</a>
+    </li>
+    <li>
+        <a href="#">＃成功</a>
+    </li>
+    <li>
+        <a href="#">＃ブランド</a>
+    </li>
+    <li>
+        <a href="#">＃ヒト</a>
+    </li>
+    <li>
+        <a href="#">＃サービス</a>
+    </li>
+    <li>
+        <a href="#">＃小さく生んで大きく育てる</a>
+    </li>
+    <li>
+        <a href="#">＃運</a>
+    </li>
+    <li>
+        <a href="#">＃やりがい</a>
+    </li>
+    <li>
+        <a href="#">＃アイデア</a>
+    </li>
+    <li>
+        <a href="#">＃人生</a>
+    </li>
+    <li>
+        <a href="#">＃客観視</a>
+    </li>
+    <li>
+        <a href="#">＃勉強</a>
+    </li>
+    <li>
+        <a href="#">＃成功。目標達成。癖</a>
+    </li>
+    <li>
+        <a href="#">＃継続</a>
+    </li>
+    <li>
+        <a href="#">＃言語化</a>
+    </li>
+    <li>
+        <a href="#">＃情報</a>
+    </li>
+    <li>
+        <a href="#">＃目標</a>
+    </li>
+    <li>
+        <a href="#">＃失敗</a>
+    </li>
+    <li>
+        <a href="#">＃直観</a>
+    </li>
+    <li>
+        <a href="#">＃フレームワーク</a>
+    </li>
+    <li>
+        <a href="#">＃課題</a>
+    </li>
+</ul>
+</div>
+
+
+</body>
+</html>
