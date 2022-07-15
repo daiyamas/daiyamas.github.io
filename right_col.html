@@ -204,7 +204,33 @@ margin-top: 50px;
 }
 
 </style>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 </head>
+<script>
+    $(function(){
+
+var randomContent = [];
+$('.menu04 li').each(function() {
+    randomContent.push($(this).html());
+});
+
+randomContent.sort(function() {
+    return Math.random() - Math.random();
+});
+
+$('.menu04 li').empty();
+
+i = 0;
+$('.menu04 li').each(function() {
+     $(this).append(randomContent[i]);
+    i++;
+});
+
+});
+</script>
 <body>
 
 <div class="menu00">
