@@ -202,249 +202,267 @@ margin-top: 50px;
     background-color: #bf0000;
     border: 1px solid #bf0000;
 }
+/* リセットCSS */
+* {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+/* アコーディオンメニュー全体のサイズ・位置 */
+/* .ac {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+} */
+
+/* クリック領域 */
+
+/* クリックしたら表示される領域 */
+.ac-child {
+  display: none;
+  padding: 2em 1em;
+  /* background-color: #ffccbc; */
+  text-align: center;
+}
+.ac-parent {
+	position: relative;  /* 追加 */
+	height: 50px;
+	border-bottom: 1px solid #bf0000;
+	/* background-color: #f97148; */
+	color: #bf0000;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+}
+
+/* 擬似要素で下三角形を作成 */
+.ac-parent:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 45%;
+	right: 30px;
+	width: 10px;
+	height: 10px;
+	border-right: 3px solid #bf0000;
+	border-bottom: 3px solid #bf0000;
+	transform: translateY(-50%) rotate(45deg);
+	transition: .3s;
+}
+
+/* オープン時にopenクラスを付与 */
+.ac-parent.open:after {
+	transform: rotate(225deg);
+}
 </style>
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-</head>
-<script>
-    $(function(){
 
-var randomContent = [];
-$('.menu04 li').each(function() {
-    randomContent.push($(this).html());
-});
+  <script>
+    $(function () {
+  $('.ac-parent').on('click', function () {
+    $(this).next().slideToggle();
+    //openクラスをつける
+    $(this).toggleClass("open");
+    //クリックされていないac-parentのopenクラスを取る
+    $('.ac-parent').not(this).removeClass('open');
 
-randomContent.sort(function() {
-    return Math.random() - Math.random();
-});
-
-$('.menu04 li').empty();
-
-i = 0;
-$('.menu04 li').each(function() {
-     $(this).append(randomContent[i]);
-    i++;
-});
-
+    // 一つ開くと他は閉じるように
+    $('.ac-parent').not($(this)).next('.ac-child').slideUp();
+  });
 });
 </script>
+</head>
+
 <body>
 
-<div class="menu00">
-<p class="menu_tit">
-カテゴリから選ぶ
-</p>
-<ul>
-<li class="btn00">
-<a href="#">
-    <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/767376ead2e7c63ac7a0c45da007b821ebd224c5.95.9.9.3.jpeg" alt="">
-</a>
-</li>
-<li class="btn00">
-    <a href="#">
-        <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/1f21dce1f959243e0633e6bd8e4a0ca9bcab72b8.95.9.9.3.jpeg" alt="">
-    </a>
-    </li>
-    <li class="btn00">
-        <a href="#">
-            <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/1dbab5ca9ab99b1b7c369741b4ecfe1c3737c0bf.95.9.9.3.jpeg" alt="">
-        </a>
-        </li>
-        <li class="btn00">
-            <a href="#">
-                <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/9ee68f5ae47bb5e8d4fbe6be173336291a09fe15.95.9.9.3.jpeg" alt="">
-            </a>
-            </li>
 
-</ul>        
-</div>
-<!-- <div class="menu01 mt50">
-<p class="menu_tit">
-カテゴリから選ぶ
-</p>
-<ul>
-<li class="btn">
-<a href="#">10の極意</a>
-</li>
-<li class="btn">
-<a href="#">敵を知る（対人論）</a>
-</li>
-<li class="btn">
-<a href="#">組織を動かす</a>
-</li>
-<li class="btn">
-<a href="#">自己を変える</a>
-</li>
-</ul>        
-</div> -->
-<div class="menu02 mt50">
-<p class="menu_tit">
-楽天主義<br>
-ブランドコンセプト
-</p>
-<ul>
-<li class="btn">
-<a href="#">大義名分</a>
-</li>
-<li class="btn">
-<a href="#">品性高潔</a>
-</li>
-<li class="btn">
-<a href="#">用意周到</a>
-</li>
-<li class="btn">
-<a href="#">信念不抜</a>
-</li>
-<li class="btn">
-<a href="#">一致団結</a>
-</li>
-</ul>        
-</div>
-<div class="menu03 mt50">
-<p class="menu_tit">
-成功のコンセプト
-</p>
-<ul>
-<li class="btn">
-<a href="#">常に改善、常に前進</a>
-</li>
-<li class="btn">
-<a href="#">Professionalismの徹底</a>
-</li>
-<li class="btn">
-<a href="#">仮説→実行→検証→仕組化</a>
-</li>
-<li class="btn">
-<a href="#">顧客満足の最大化</a>
-</li>
-<li class="btn">
-<a href="#">スピード!!スピード!!スピード!!</a>
-</li>
-</ul>        
-</div>
-<div class="menu04 mt50">
-<p class="menu_tit">
-機会に応じて
-</p>
-<ul>
-<li class="c-btn circle">
-<a href="#">用意周到</a>
-</li>
-<li class="c-btn circle">
-<a href="#">大義名分</a>
-</li>
-<li class="c-btn circle">
-<a href="#">信念不抜-GET THINGS DONE-</a>
-</li>
-<li class="c-btn circle">
-<a href="#">常に改善、常に前進</a>
-</li>
-<li class="c-btn circle">
-<a href="#">顧客満足の最大化</a>
-</li>
-</li>
-<li class="c-btn circle">
-<a href="#">Missionーイノベーションを通じて</a>
-</li>
-</li>
-<li class="c-btn circle">
-<a href="#">Professionalismの徹底</a>
-</li>
-</li>
-<li class="c-btn circle">
-<a href="#">スピード!!スピード!!スピード!!</a>
-</li>
-</li>
-<li class="c-btn circle">
-<a href="#">一致団結</a>
-</li>
-</li>
-<li class="c-btn circle">
-<a href="#">仮説→実行→検証→仕組化</a>
-</li>
-</ul>        
-</div>
+    <dl class="ac">
+        <dt class="ac-parent">カテゴリから選ぶ</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="btn00">
+                <a href="#">
+                    <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/767376ead2e7c63ac7a0c45da007b821ebd224c5.95.9.9.3.jpeg" alt="">
+                </a>
+                </li>
+                <li class="btn00">
+                    <a href="#">
+                        <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/1f21dce1f959243e0633e6bd8e4a0ca9bcab72b8.95.9.9.3.jpeg" alt="">
+                    </a>
+                    </li>
+                    <li class="btn00">
+                        <a href="#">
+                            <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/1dbab5ca9ab99b1b7c369741b4ecfe1c3737c0bf.95.9.9.3.jpeg" alt="">
+                        </a>
+                        </li>
+                        <li class="btn00">
+                            <a href="#">
+                                <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/9ee68f5ae47bb5e8d4fbe6be173336291a09fe15.95.9.9.3.jpeg" alt="">
+                            </a>
+                            </li>
+                
+                </ul>   
+        </dd>
+        <dt class="ac-parent">楽天主義 ブランドコンセプト</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="btn">
+                <a href="#">大義名分</a>
+                </li>
+                <li class="btn">
+                <a href="#">品性高潔</a>
+                </li>
+                <li class="btn">
+                <a href="#">用意周到</a>
+                </li>
+                <li class="btn">
+                <a href="#">信念不抜</a>
+                </li>
+                <li class="btn">
+                <a href="#">一致団結</a>
+                </li>
+                </ul>    
+        </dd>
+        <dt class="ac-parent">成功のコンセプト</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="btn">
+                <a href="#">常に改善、常に前進</a>
+                </li>
+                <li class="btn">
+                <a href="#">Professionalismの徹底</a>
+                </li>
+                <li class="btn">
+                <a href="#">仮説→実行→検証→仕組化</a>
+                </li>
+                <li class="btn">
+                <a href="#">顧客満足の最大化</a>
+                </li>
+                <li class="btn">
+                <a href="#">スピード!!スピード!!スピード!!</a>
+                </li>
+                </ul>      
+        </dd>
+        <dt class="ac-parent">機会に応じて</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="c-btn circle">
+                <a href="#">用意周到</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">大義名分</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">信念不抜-GET THINGS DONE-</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">常に改善、常に前進</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">顧客満足の最大化</a>
+                </li>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">Missionーイノベーションを通じて</a>
+                </li>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">Professionalismの徹底</a>
+                </li>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">スピード!!スピード!!スピード!!</a>
+                </li>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">一致団結</a>
+                </li>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">仮説→実行→検証→仕組化</a>
+                </li>
+                </ul>     
+        </dd>
+        <dt class="ac-parent">キーワードで探す</dt>
+        <dd class="ac-child keyword">
+            <ul>
+                <li>
+                    <a href="#">＃正しさ</a>
+                </li>
+                <li>
+                    <a href="#">＃成長。限界突破</a>
+                </li>
+                <li>
+                    <a href="#">＃チーム</a>
+                </li>
+                <li>
+                    <a href="#">＃成功</a>
+                </li>
+                <li>
+                    <a href="#">＃ブランド</a>
+                </li>
+                <li>
+                    <a href="#">＃ヒト</a>
+                </li>
+                <li>
+                    <a href="#">＃サービス</a>
+                </li>
+                <li>
+                    <a href="#">＃小さく生んで大きく育てる</a>
+                </li>
+                <li>
+                    <a href="#">＃運</a>
+                </li>
+                <li>
+                    <a href="#">＃やりがい</a>
+                </li>
+                <li>
+                    <a href="#">＃アイデア</a>
+                </li>
+                <li>
+                    <a href="#">＃人生</a>
+                </li>
+                <li>
+                    <a href="#">＃客観視</a>
+                </li>
+                <li>
+                    <a href="#">＃勉強</a>
+                </li>
+                <li>
+                    <a href="#">＃成功。目標達成。癖</a>
+                </li>
+                <li>
+                    <a href="#">＃継続</a>
+                </li>
+                <li>
+                    <a href="#">＃言語化</a>
+                </li>
+                <li>
+                    <a href="#">＃情報</a>
+                </li>
+                <li>
+                    <a href="#">＃目標</a>
+                </li>
+                <li>
+                    <a href="#">＃失敗</a>
+                </li>
+                <li>
+                    <a href="#">＃直観</a>
+                </li>
+                <li>
+                    <a href="#">＃フレームワーク</a>
+                </li>
+                <li>
+                    <a href="#">＃課題</a>
+                </li>
+            </ul>
+        </dd>
 
-<div class="keyword">
-<p class="menu_tit">
-    キーワードで探す
-    </p>
-<ul>
-    <li>
-        <a href="#">＃正しさ</a>
-    </li>
-    <li>
-        <a href="#">＃成長。限界突破</a>
-    </li>
-    <li>
-        <a href="#">＃チーム</a>
-    </li>
-    <li>
-        <a href="#">＃成功</a>
-    </li>
-    <li>
-        <a href="#">＃ブランド</a>
-    </li>
-    <li>
-        <a href="#">＃ヒト</a>
-    </li>
-    <li>
-        <a href="#">＃サービス</a>
-    </li>
-    <li>
-        <a href="#">＃小さく生んで大きく育てる</a>
-    </li>
-    <li>
-        <a href="#">＃運</a>
-    </li>
-    <li>
-        <a href="#">＃やりがい</a>
-    </li>
-    <li>
-        <a href="#">＃アイデア</a>
-    </li>
-    <li>
-        <a href="#">＃人生</a>
-    </li>
-    <li>
-        <a href="#">＃客観視</a>
-    </li>
-    <li>
-        <a href="#">＃勉強</a>
-    </li>
-    <li>
-        <a href="#">＃成功。目標達成。癖</a>
-    </li>
-    <li>
-        <a href="#">＃継続</a>
-    </li>
-    <li>
-        <a href="#">＃言語化</a>
-    </li>
-    <li>
-        <a href="#">＃情報</a>
-    </li>
-    <li>
-        <a href="#">＃目標</a>
-    </li>
-    <li>
-        <a href="#">＃失敗</a>
-    </li>
-    <li>
-        <a href="#">＃直観</a>
-    </li>
-    <li>
-        <a href="#">＃フレームワーク</a>
-    </li>
-    <li>
-        <a href="#">＃課題</a>
-    </li>
-</ul>
-</div>
-
-
+      </dl>
 </body>
 </html>
