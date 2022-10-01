@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic'
+        }
+
+
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-align: center;
+            text-decoration: none;
+            color: #333333;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 320px;
+            height: 40px;
+            border: 1px solid #333333;
+            position: relative;
+            transition: 0.3s;
+            background-color: #FFFFFFFF;
+        }
+
+        .btn::before,
+        .btn::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform-origin: 100% 50%;
+            height: 1px;
+            width: 11px;
+            background-color: #333;
+            border-radius: 2px;
+            will-change: transform;
+            transition: .3s;
+        }
+
+        .btn::before {
+            transform: translateY(-50%) rotate(30deg);
+        }
+
+        .btn::after {
+            transform: translateY(-50%) rotate(-30deg);
+        }
+
+        .btn:hover::before {
+            transform: translate(5px, -50%) rotate(30deg);
+        }
+
+        .btn:hover::after {
+            transform: translate(5px, -50%) rotate(-30deg);
+        }
+
+        .btn:hover {
+            background-color: #777777;
+        }
+
+
+
+        .btn,
+        ul {
+            display: flex;
+            margin: 1%;
+            flex-wrap: wrap;
+            /* justify-content: center; */
+        }
+
+        .btn,
+        li {
+            margin-bottom: 10px;
+        }
+
+        .btn,
+        li,
+        a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 13px;
+        }
+
+
+
+        .btn00 {
+            overflow: hidden;
+        }
+
+        .btn00 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1%;
+            flex-wrap: wrap;
+            width: 48%;
+        }
+
+        .btn00 img {
+            transition: 1s all;
+            width: 100%;
+        }
+
+        .btn00 img:hover {
+            transform: scale(1.1, 1.1);
+            transition: .3s all;
+        }
+
+        .c-btn {
+            background: #bf0000;
+            border: 1px solid #333333;
+            border-radius: 15px;
+            color: #fff;
+            display: block;
+            max-width: 300px;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+        .c-btn,
+        ul {
+            display: flex;
+            /* margin: 1%; */
+            flex-wrap: wrap;
+
+        }
+
+        .c-btn.circle {
+            background: #fff;
+            color: #bf0000;
+            overflow: hidden;
+            position: relative;
+            transition-duration: .4s;
+            z-index: 2;
+            display: flex;
+            margin: 1%;
+            flex-wrap: wrap;
+            width: 48%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .c-btn.circle::after {
+            background: #bf0000;
+            color: #ffffff !important;
+            border-radius: 50%;
+            content: "";
+            display: block;
+            margin: auto;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding-top: 100%;
+            height: 0;
+            z-index: -1;
+            transform: translateY(-50%) scale(0.1);
+            transition: opacity .5s, transform 0s;
+            transition-delay: 0s, .4s;
+        }
+
+        .circle:hover {
+            color: #fff;
+        }
+
+        .c-btn.circle a:hover {
+            color: #fff;
+        }
+
+        .c-btn.circle:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+            transition-delay: 0s;
+            transition: opacity .8s, transform .6s ease-in-out;
+        }
+
+
+        .menu_tit {
+            font-size: 20px;
+            font-weight: 600;
+            /* text-align: center; */
+        }
+
+        .mt50 {
+            margin-top: 50px;
+        }
+
+        .keyword ul li {
+            font-size: 14px;
+            /* font-weight: 700; */
+            margin: 0 16px 16px 0;
+            display: inline-block;
+        }
+
+        .keyword ul li a {
+            display: inherit;
+            color: #333333;
+            background-color: #ffffff;
+            border: 1px solid #333333;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            -o-box-sizing: border-box;
+        }
+
+        .keyword ul li a:hover {
+            color: #ffffff;
+            background-color: #bf0000;
+            border: 1px solid #bf0000;
+        }
+
+        /* リセットCSS */
+        * {
+            list-style: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .ac-child {
+            display: none;
+            padding: 2em 1em;
+            /* background-color: #ffccbc; */
+            text-align: center;
+        }
+
+        .ac-parent {
+            position: relative;
+            /* 追加 */
+            height: 50px;
+            border-bottom: 1px solid #fff;
+            background-color: #002896;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        /* 擬似要素で下三角形を作成 */
+        .ac-parent:after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 45%;
+            right: 30px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+            transform: translateY(-50%) rotate(45deg);
+            transition: .3s;
+        }
+
+        /* オープン時にopenクラスを付与 */
+        .ac-parent.open:after {
+            transform: rotate(225deg);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $('.ac-parent').on('click', function () {
+                $(this).next().slideToggle();
+                //openクラスをつける
+                $(this).toggleClass("open");
+                //クリックされていないac-parentのopenクラスを取る
+                $('.ac-parent').not(this).removeClass('open');
+
+                // 一つ開くと他は閉じるように
+                // $('.ac-parent').not($(this)).next('.ac-child').slideUp();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <dl class="ac">
+        <dt class="ac-parent">Choose by category</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="btn00">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/category_EN.aspx#10-maxims"
+                        target="_blank">
+                        <img src="./img/category01.jpg" alt="">
+                    </a>
+                </li>
+                <li class="btn00">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/category_EN.aspx#train-yourself"
+                        target="_blank">
+                        <img src="./img/category02.jpg" alt="">
+                    </a>
+                </li>
+                <li class="btn00">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/category_EN.aspx#know-your-enemy-(interpersonal-theory)"
+                        target="_blank">
+                        <img src="./img/category03.jpg" alt="">
+                    </a>
+                </li>
+                <li class="btn00">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/category_EN.aspx#moving-the-organization"
+                        target="_blank">
+                        <img src="./img/category04.jpg" alt="">
+                    </a>
+                </li>
+
+            </ul>
+        </dd>
+        <dt class="ac-parent">Brand Concept</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/brand_EN.aspx#on-a-mission-empowerment"
+                        target="_blank">On a Mission: Empowerment</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/brand_EN.aspx#behave-ethically-integrity"
+                        target="_blank">Behave Ethically: Integrity</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/brand_EN.aspx#prepare-to-succeed-professionalism"
+                        target="_blank">Prepare to Succeed: Professionalism</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/brand_EN.aspx#complete-commitment-get-things-done"
+                        target="_blank">Complete Commitment: Get Things Done</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/brand_EN.aspx#solidarity-succeed-as-a-team"
+                        target="_blank">Solidarity: Succeed as a Team</a>
+                </li>
+            </ul>
+        </dd>
+        <dt class="ac-parent">Five Principles for Success</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/success_EN.aspx#always-improve%2C-always-advance"
+                        target="_blank">Always Improve, Always Advance</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/success_EN.aspx#passionately-professional"
+                        target="_blank">Passionately Professional</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/success_JP.aspx#%E4%BB%AE%E8%AA%AC%E2%86%92%E5%AE%9F%E8%A1%8C%E2%86%92%E6%A4%9C%E8%A8%BC%E2%86%92%E4%BB%95%E7%B5%84%E5%8C%96"
+                        target="_blank">Hypothesize→Practice→Validate→Shikumika</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/success_EN.aspx#maximize-customer-satisfaction"
+                        target="_blank">Maximize Customer Satisfaction</a>
+                </li>
+                <li class="btn">
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/SitePages/success_EN.aspx#speed!!-speed!!-speed!!"
+                        target="_blank">Speed!! Speed!! Speed!!!</a>
+                </li>
+            </ul>
+        </dd>
+        <!-- <dt class="ac-parent 2col">機会に応じて</dt>
+        <dd class="ac-child">
+            <ul>
+                <li class="c-btn circle">
+                <a href="#">用意周到</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">大義名分</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">信念不抜-GET THINGS DONE-</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">常に改善、常に前進</a>
+                </li>
+                <li class="c-btn circle">
+                <a href="#">顧客満足の最大化</a>
+                </li>
+                
+                <li class="c-btn circle">
+                <a href="#">Missionーイノベーションを通じて</a>
+                </li>
+                
+                <li class="c-btn circle">
+                <a href="#">Professionalismの徹底</a>
+                </li>
+                
+                <li class="c-btn circle">
+                <a href="#">スピード!!スピード!!スピード!!</a>
+                </li>
+                
+                <li class="c-btn circle">
+                <a href="#">一致団結</a>
+                </li>
+                
+                <li class="c-btn circle">
+                <a href="#">仮説→実行→検証→仕組化</a>
+                </li>
+                </ul>     
+        </dd> -->
+        <dt class="ac-parent">
+            Select by keyword
+        </dt>
+        <dd class="ac-child keyword">
+            <ul>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=correctness"
+                        target="_blank">＃correctness</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=growth"
+                        target="_blank">＃growth　</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=limits"
+                        target="_blank">＃pushing the limits　</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=team"
+                        target="_blank">＃team</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=successes"
+                        target="_blank">＃successes</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Brand&refiners=%7b%22FileType%22%3a%5b%22pptx%22%5d%7d"
+                        target="_blank">＃brands</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=person"
+                        target="_blank">＃person　</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=service"
+                        target="_blank">＃service</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=give%20a%20man%20a%20small%20head%20start%20and%20he%20will%20take%20a%20big%20one
+                    " target="_blank">＃give a man a small head start and he will take a big one</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=good%20luck"
+                        target="_blank">＃good luck</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=being%20worth%20doing"
+                        target="_blank">＃being worth doing　</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Ideas"
+                        target="_blank">＃Ideas</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=life"
+                        target="_blank">＃life</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=%E5%AE%A2%E8%A6%B3%E8%A6%96"
+                        target="_blank">＃objective point of view</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=learning"
+                        target="_blank">＃learning</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=goals"
+                        target="_blank">＃goals</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=habit"
+                        target="_blank">＃habit</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=continue"
+                        target="_blank">＃continue</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=into%20words%20"
+                        target="_blank">＃into words</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=%E6%83%85%E5%A0%B1"
+                        target="_blank">＃information</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=failure"
+                        target="_blank">＃failure</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=intuition"
+                        target="_blank">＃intuition</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=framework"
+                        target="_blank">＃framework</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=issue"
+                        target="_blank">＃issue</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=value"
+                        target="_blank">＃value</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=way%20of%20looking%20at%20things"
+                        target="_blank">＃way of looking at things</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Relationships%20with%20others"
+                        target="_blank">＃Relationships with others</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=essence"
+                        target="_blank">＃essence</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Relationships%20with%20others"
+                        target="_blank">＃Relationships with others</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=risks"
+                        target="_blank">＃risks</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=hit%20a%20roadblock%20"
+                        target="_blank">＃hit a roadblock</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=debate%20"
+                        target="_blank">＃debate</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=competition"
+                        target="_blank">＃competition</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=teaching"
+                        target="_blank">＃teaching</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=profits"
+                        target="_blank">＃profits</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=report"
+                        target="_blank">＃report</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=should%20be%20doing"
+                        target="_blank">＃should be doing</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=hope"
+                        target="_blank">＃hope</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=KPIs"
+                        target="_blank">＃KPIs</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=money"
+                        target="_blank">＃money</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=leader"
+                        target="_blank">＃leader</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=organization"
+                        target="_blank">＃organization</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=growth&refiners=%7b%22FileType%22%3a%5b%22pptx%22%5d%7d"
+                        target="_blank">＃growth</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=accomplishment&refiners=%7B%22FileType%22%3A%5B%22pptx%22%5D%7D"
+                        target="_blank">＃accomplishment</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=efficiency"
+                        target="_blank">＃efficiency</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=%E5%8A%B9%E7%8E%87"
+                        target="_blank">＃Team</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Business　"
+                        target="_blank">＃Business</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Shikumi"
+                        target="_blank">＃Shikumi</a>
+                </li>
+                <li>
+                    <a href="#Prepare　
+                    https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Prepare"
+                        target="_blank">＃Prepare</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=balance"
+                        target="_blank">＃balance</a>
+                </li>
+                <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Factorize"
+                    target="_blank">＃actorize</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=judgement"
+                        target="_blank">＃judgement</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=decision"
+                        target="_blank">＃decision</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=vision"
+                        target="_blank">＃vision</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=business%20skills%E3%80%80&refiners=%7b%22FileType%22%3a%5b%22pptx%22%5d%7d"
+                        target="_blank">＃business skills</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=How%20to%20avoid%20failure%20in%20business"
+                        target="_blank">＃How to avoid failure in business</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Asset%20Utilization"
+                        target="_blank">＃#Asset Utilization</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=When%20things%20don%E2%80%99t%20go%20"
+                        target="_blank">＃When things don’t go</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=operations"
+                        target="_blank">＃operations</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Notes%20on%20Establish%20a%20Winning%20Pattern"
+                        target="_blank">＃Notes on Establish a Winning Pattern　</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=cost%20reduction"
+                        target="_blank">＃cost reduction</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=Continued%20Success"
+                        target="_blank">＃Continued Success</a>
+                </li>
+                <li>
+                    <a href="https://officerakuten.sharepoint.com/sites/Business-DO_yama_test/_layouts/15/search.aspx/sitefiles?q=The%20essence%20of%20the%20internet%20
+                    " target="_blank">＃The essence of the internet</a>
+                </li>
+
+            </ul>
+        </dd>
+
+    </dl>
+</body>
+
+</html>
