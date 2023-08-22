@@ -3,40 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://officerakuten.sharepoint.com/sites/GlobalPortal/Style%20Library/Rakuten/rakutenshugi/css/rakutenShugiTop.css
-" rel="stylesheet">
-<link href="https://officerakuten.sharepoint.com/sites/GlobalPortal/RakutenShugi/script/css/style.css
-" rel="stylesheet">
+<link href="https://officerakuten.sharepoint.com/sites/GlobalPortal/Style%20Library/Rakuten/rakutenshugi/css/rakutenShugiTop.css" rel="stylesheet">
+<link href="https://officerakuten.sharepoint.com/sites/GlobalPortal/RakutenShugi/script/css/style.css" rel="stylesheet">
+<!-- Font AwesomeのCSSを読み込む -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
-.contents{
-font-family: "メイリオ","Meiryo",verdana,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
-font-size: 14px;
-text-align: center;
-width: 100%;
+.contents {
+  font-family: "メイリオ","Meiryo",verdana,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
 }
 .con_tit {
-background: #bf0000; 
-color: #fff;
-margin-top: 30px;
+  background: #bf0000; 
+  color: #fff;
+  margin-top: 30px;
 }
 
 .con_tit h2 {
-font-weight: bold;
-color: #ffffff;
-padding: 10px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px;
 }
 
-
 header > ul {
-   width: 100%;
+  width: 100%;
 }
 
 header > ul > li {
-   flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 
 header > ul > li a {
-padding: 7px 15px;
+  color: #000000;
+  background-color: #cdcdcd;
+  padding: 7px 15px;
+  display: inline-block;
+}
+
+/* 追加 */
+header > ul > li a > i {
+  font-size: 25px;
+  margin-right: 5px;
 }
 
 </style>
@@ -46,21 +54,31 @@ padding: 7px 15px;
 <header> 
 <ul style="padding-left: 0px;"> 
 <li> 
-<a href="#">Mental<br>Wellness</a> 
+<a href="#">
+   <i class="fas fa-people-arrows"></i><br> <!-- Font Awesomeのアイコンクラスを指定 -->
+  Mental Wellness
+</a> 
 </li> 
 <li> 
-<a href="#">Phisycal<br>Wellness</a> 
+<a href="#">
+  <i class="fas fa-people-arrows"></i><br> <!-- Font Awesomeのアイコンクラスを指定 -->
+  Phisycal Wellness
+</a> 
 </li> 
 <li> 
-<a href="#">Social<br>Wellness</a> 
-
+<a href="#">
+   <i class="fas fa-people-arrows"></i><br>  <!-- Font Awesomeのアイコンクラスを指定 -->
+  Social Wellness
+</a> 
 </li> 
 <li> 
-<a href="#">Financial<br>Wellness</a> 
-
+<a href="#">
+   <i class="fas fa-people-arrows"></i><br>  <!-- Font Awesomeのアイコンクラスを指定 -->
+  Financial Wellness
+</a> 
 </li> 
-
-</ul> </header> 
+</ul> 
+</header> 
 </div> 
 </body>
 </html>
