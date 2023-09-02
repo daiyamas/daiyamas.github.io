@@ -26,7 +26,7 @@
 
 header > ul {
   width: 100%;
-  height: 80px;
+  /* height: 80px; */
   display: flex;
   justify-content: space-between;
 }
@@ -61,17 +61,16 @@ header > ul > li a > i {
 header > ul > li .sub-nav {
       display: none;
       position: absolute;
-      top: -10%;
-      left: 0;
+      top: 100%;
+      left: 5%;
       background-color: #cdcdcd;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      flex-direction: row; 
+      width: 80%;
+      flex-direction: column; 
       padding: 10px;
       justify-content: flex-start;
       align-items: center;
-      margin-top: 10px; /* 追加 */
-      background-color: #fff; /* 追加 */
+      background-color: #cdcdcd; /* 追加 */
       border-radius: 5px; /* 追加 */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 追加 */
       list-style: none;
@@ -84,11 +83,17 @@ header > ul > li .sub-nav li {
       padding: 0; 
       border-bottom: none; 
       text-align: center; 
-      width: 30%; 
-      margin: 0 5px;
+      width: 100%; 
+      margin: 0;
 }
 header > ul > li .sub-nav li:last-child {
       border-bottom: none;
+}
+
+.nav-image {
+    width: 100%;
+    display: block;
+    margin: -15px 0; 
 }
 </style>
 </head>
@@ -142,6 +147,7 @@ header > ul > li .sub-nav li:last-child {
           </li> 
         </ul> 
       </header> 
+      <img src="https://image.space.rakuten.co.jp/d/strg/ctrl/9/d84e99e959ea02c635d00a10068a33537531055d.27.9.9.3.jpeg" alt="" class="nav-image"> 
     </div> 
   </body>
 </html>
