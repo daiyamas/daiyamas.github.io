@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+  .wrapper{
+    font-family: "Noto Sans JP", Arial, Meiryo, "メイリオ", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Arial Unicode MS", sans-serif;
+    width: 100%;
+  }
+
+/* タブレット端末表示 */
+li {
+  list-style: none;
+}
+
+.contentWrapper {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cen {
+  text-align: center;
+}
+
+.mag-t30 {
+  margin-top: 30px;
+}
+
+.mag-t10 {
+  margin-top: 10px;
+}
+
+.btn-start {
+  width: 60%;
+}
+.log-contents {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.log-contents img{
+  width: 40%;
+}
+.box-q {
+  margin-bottom: 20px;
+  /* background-color: #f1faa0; */
+  border-radius: 10px;
+  padding: 20px 15px;
+  color: #330f03;
+}
+
+.box-q dt {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.box-q dd {
+  text-align: left;
+  margin-top: 30px;
+  line-height: 1.6;
+  font-size: 1.2rem;
+}
+
+.btn-link {
+  display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+.btn-link li {
+ width: 47%;
+ text-align: center;
+ font-weight: bold;
+ font-size: 1.2rem;
+ line-height: 50px;
+ border-radius: 5px;
+ list-style: none;
+ background-color: #2db0e6;
+}
+
+.btn-link li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.btn-link li:last-child {
+  background-color: #97a1a0;
+}
+
+.ico-link {
+  margin-top: 30px;
+  padding: 0 0 0 20px;
+  background-image: url("../img/ico_link.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 0%;
+  display: inline-block;
+}
+
+.ico-link a {
+  color: #2156a6;
+  display: block;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+
+
+/* 20231215追加 */
+
+html,body,.wrapper {
+  height: auto;
+}
+
+.log_top {
+  max-width: 80%;
+}
+
+.box-q img {
+  max-width: 90%;
+  margin-top: 10px;
+}
+
+.box-q dd {
+  margin-top: 10px;
+}
+
+.answer_logo {
+  max-width: 60%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Viewport height to cover the full screen */
+  flex-direction: column; /* Stack the items vertically */
+}
