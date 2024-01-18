@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" type="text/css" media="all" href="../css/base.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="../css/sp.css" />
+</head>
+
+<body>
+  <!--    コンテンツ開始    -->
+  <div class="wrapper">
+    <div class="contentWrapper">
+    <div class="start_img_flex">
+      <p><img class="start_img" src="../start/img/green.png" alt="こどもイラストグリーン" /></p>
+      <p><img class="start_img" src="../start/img/purple.png" alt="こどもイラストパープル" /></p>      
+    </div>
+      <p class="mag-t10 cen">
+        <img class="log_top" src="../img/log_top.png" alt="こどもにじいろアプリと星のマーク" />
+      </p>
+      <p class="cen">
+        <a href="../question/00/index.html"><img src="./img/btn_start.png" alt="スタート" class="btn-start" /></a>
+      </p>
+      <div class="start_img_flex">
+      <p><img class="start_img" src="../start/img/red.png" alt="こどもイラストレッド" /></p>
+      <p><img class="start_img" src="../start/img/yellow.png" alt="こどもイラストイエロー" /></p>        
+      </div>
+    </div>
+    <!--    contentWrapper終わり     -->
+  </div>
+  <!--    wapper終わり     -->
+  <!-- コンテンツここまで-->
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+  let images = ['aqua.png', 'blue.png', 'green.png', 'orange.png', 'purple.png', 'red.png', 'yellow.png'];
+  const imgElements = document.querySelectorAll('.start_img');
+
+  imgElements.forEach(img => {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    img.src = `../start/img/${images[randomIndex]}`;
+    images.splice(randomIndex, 1); // 選択した画像を配列から削除
+  });
+});
+  </script>
+</body>
+
+</html>

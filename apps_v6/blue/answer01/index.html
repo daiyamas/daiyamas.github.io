@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="robots" content="noindex" />
+  <meta http-equiv="refresh" content="5; url=../answer02/index.html">
+  <link rel="stylesheet" type="text/css" media="all" href="../../css/base.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="../../css/sp.css" />
+
+</head>
+
+<body>
+  <!--    コンテンツ開始    -->
+  <div class="wrapper">
+    <div class="contentWrapper">
+      <p class="mag-t10 cen">
+        <img class="answer_logo" src="../../img/log_top.png" alt="こどもにじいろアプリと星のマーク" />
+      </p>
+      <p>
+        <img id="randomImage" class="img" style="width: 60%; margin: 0 auto" src="" alt="にじいろのこどもたちの全身イラスト" />
+      </p>
+      <p style="font-size: 1.2rem;">回答結果が表示されます。<br> しばらくおまちください。</p>
+      <!-- <p class="cen">
+          <a href="../answer02/index.html"
+            ><img src="./img/btn_answer.jpg" alt="回答結果を見る" class="btn-start"
+          /></a>
+        </p> -->
+    </div>
+    <!--    contentWrapper終わり     -->
+  </div>
+  <!--    wapper終わり     -->
+  <!-- コンテンツここまで-->
+  <script>
+    window.onload = function () {
+      var images = ['aqua.png', 'blue.png', 'green.png', 'orange.png', 'purple.png', 'red.png', 'yellow.png'];
+      var randomNumber = Math.floor(Math.random() * images.length);
+      var randomImage = images[randomNumber];
+      document.getElementById('randomImage').src = "./img/" + randomImage;
+    }
+  </script>
+</body>
+
+</html>

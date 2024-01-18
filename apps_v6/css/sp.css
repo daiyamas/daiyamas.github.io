@@ -1,0 +1,268 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+  .wrapper{
+    font-family: "Noto Sans JP", Arial, Meiryo, "メイリオ", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Arial Unicode MS", sans-serif;
+    width: 100%;
+  }
+
+/* タブレット端末表示 */
+li {
+  list-style: none;
+}
+
+.contentWrapper {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2%;
+}
+
+.img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cen {
+  text-align: center;
+}
+
+.mag-t30 {
+  margin-top: 3%;
+}
+
+.mag-t10 {
+  margin-top: 1%;
+}
+
+.btn-start {
+  width: 60%;
+}
+.log-contents {
+  text-align: center;
+  margin-bottom: 2%;
+}
+.log-contents img{
+  width: 40%;
+}
+.box-q {
+  margin-bottom: 2%;
+  border-radius: 10px;
+  padding: 2% 1.5%;
+  color: #330f03;
+}
+
+.box-q dt {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.box-q dd {
+  text-align: left;
+  margin-top: 3%;
+  line-height: 1.6;
+  font-size: 1.2rem;
+}
+
+.btn-link {
+  display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+.btn-link li {
+ width: 47%;
+ text-align: center;
+ font-weight: bold;
+ font-size: 1.2rem;
+ line-height: 50px;
+ border-radius: 5px;
+ list-style: none;
+ background-color: #2db0e6;
+}
+
+.btn-link li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.btn-link li:last-child {
+  background-color: #97a1a0;
+}
+
+.ico-link {
+  margin-top: 3%;
+  padding: 0 0 0 2%;
+  background-image: url("../img/ico_link.png");
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 0%;
+  display: inline-block;
+}
+
+.ico-link a {
+  color: #2156a6;
+  display: block;
+}
+
+.menu li {
+  margin-bottom: 1%;
+}
+
+
+
+/* 20231215追加 */
+html,body,.wrapper {
+  height: 100vh;
+}
+
+.log_top {
+  max-width: 55%;
+}
+.start_img {
+  max-width:  70%;
+}
+
+.box-q img {
+  max-width: 90%;
+  margin-top: 1%;
+}
+
+.box-q dd {
+  margin-top: 1%;
+}
+
+.answer_logo {
+  max-width: 50%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh; 
+  flex-direction: column; 
+}
+
+
+/* 20231228追加 */
+@media screen and (max-width: 380px) {
+  .box-q img {
+    max-width: 60%;
+  }
+  .log_top {
+    max-width: 50%;
+  }
+
+  .btn-start {
+    width: 50%;
+  }
+}
+
+.box-a dd {
+  text-align: left;
+  margin-top: 3%;
+  line-height: 1.3;
+  font-size: 1.2rem;
+}
+
+.start_img_flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* 20240105追加 */
+.box_title {
+  background-color: #555555;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1.5%;
+}
+
+.answer_title{
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #555555;
+}
+
+.answer_color {
+  font-size: 2.0rem;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 2% 3%;
+    border-radius: 10px;
+    background-color: #555555;
+}
+
+.answer_color span {
+  font-size: 1.4rem;
+}
+
+.header_flex {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5%;
+}
+
+.header_flex img {
+  width: 40%;
+}
+
+.bg_aqua {
+  background-color: #82bde2;
+}
+
+.aqua {
+  color: #82bde2;
+}
+
+.bg_blue {
+  background-color: #1010ec;
+}
+
+.blue {
+  color: #1010ec;
+}
+
+.bg_green {
+  background-color: #008000;
+}
+
+.green {
+  color: #008000;
+}
+
+.bg_orange {
+  background-color: #ffa500;
+}
+
+.orange {
+  color: #ffa500;
+}
+
+.bg_purple {
+  background-color: #9d009d;
+}
+
+.purple {
+  color: #9d009d;
+}
+
+.bg_red {
+  background-color: #e60012;
+}
+
+.red {
+  color: #e60012;
+}
+
+.bg_yellow {
+  background-color: #ffe900;
+}
+
+.yellow {
+  color: #ffe900;
+}
