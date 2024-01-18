@@ -203,7 +203,7 @@ html,body,.wrapper {
 
 .header_flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 5%;
 }
 
