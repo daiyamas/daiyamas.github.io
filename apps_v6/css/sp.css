@@ -197,9 +197,9 @@ html,body,.wrapper {
     background-color: #555555;
 }
 
-/* .answer_color span {
+.answer_color span {
   font-size: 1.4rem;
-} */
+}
 
 .header_flex {
   display: flex;
