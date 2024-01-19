@@ -176,7 +176,7 @@ html,body,.wrapper {
 /* 20240105追加 */
 .box_title {
   background-color: #555555;
-/*   color: #ffffff; */
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
   padding: 1.5%;
@@ -191,7 +191,7 @@ html,body,.wrapper {
 .answer_color {
   font-size: 1.8rem;
     font-weight: bold;
-/*     color: #ffffff; */
+    color: #ffffff;
     padding: 2% 3%;
     border-radius: 10px;
     background-color: #555555;
