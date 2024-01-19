@@ -148,6 +148,12 @@ html,body,.wrapper {
 
 /* 20231228追加 */
 @media screen and (max-width: 380px) {
+  .answer_color {
+    font-size: 1.6rem;
+  }
+  .answer_color span {
+    font-size: 1.2rem;
+  }
   .box-q img {
     max-width: 60%;
   }
@@ -189,7 +195,7 @@ html,body,.wrapper {
 }
 
 .answer_color {
-  font-size: 1.8rem;
+  font-size: 2.0rem;
     font-weight: bold;
     color: #ffffff;
     padding: 2% 3%;
@@ -203,7 +209,6 @@ html,body,.wrapper {
 
 .header_flex {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-between;
   margin-bottom: 5%;
 }
