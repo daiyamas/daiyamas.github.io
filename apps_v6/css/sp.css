@@ -190,11 +190,12 @@ html,body,.wrapper {
 
 .answer_color {
   font-size: 1.8rem;
-    font-weight: bold;
-    color: #ffffff;
-    padding: 2% 3%;
-    border-radius: 10px;
-    background-color: #555555;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 2% 3%;
+  border-radius: 10px;
+  background-color: #555555;
+  width: 55%;
 }
 
 .answer_color span {
