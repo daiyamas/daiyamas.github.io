@@ -209,7 +209,7 @@ html,body,.wrapper {
 
 .header_flex img {
   width: 40%;
-  object-fit: contain;
+  height: 40%;
 }
 
 .bg_aqua {
